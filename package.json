@@ -1,0 +1,14 @@
+{
+  "name": "@entva/styleguide",
+  "author": "Max Degterev <max@degterev.me>",
+  "version": "0.0.0",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "repository": "entva/styleguide",
+  "bugs": "https://github.com/entva/styleguide",
+  "scripts": {
+    "preinstall": "scripts/for-each-package npm install",
+    "test": "scripts/for-each-package npm run test",
+    "check": "npm run test"
+  }
+}

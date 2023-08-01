@@ -1,0 +1,38 @@
+{
+  "name": "stylelint-config-entva",
+  "description": "Shareable entva styleguide config for stylelint",
+  "author": "Max Degterev <max@degterev.me>",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "repository": "entva/styleguide",
+  "bugs": "https://github.com/entva/styleguide/issues",
+  "version": "1.0.0",
+  "keywords": [
+    "linter",
+    "config",
+    "stylelint"
+  ],
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "reinstall": "rm -rf node_modules package-lock.json && npm install",
+    "test": "node ../../../test ./test css",
+    "prepublishOnly": "npm test"
+  },
+  "devDependencies": {
+    "eslint": "^8.45.0",
+    "eslint-config-entva-base": "^1.0.0",
+    "stylelint": "^15.10.0"
+  },
+  "dependencies": {
+    "stylelint-config-standard": "^34.0.0",
+    "stylelint-config-standard-scss": "^10.0.0",
+    "stylelint-order": "^6.0.3",
+    "stylelint-scss": "^5.0.1"
+  },
+  "peerDependencies": {
+    "stylelint": "^15.x.x"
+  }
+}

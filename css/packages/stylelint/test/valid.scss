@@ -1,0 +1,40 @@
+@import "external/src/**/index.scss";
+
+.no,
+.nope {
+  content: "declaration of multiple selectors";
+}
+
+.bad-naming {
+  content: "selector naming";
+}
+
+.color-value {
+  // Long comment
+  //
+  // With empty lines
+  content: "color value";
+  color: #f1f1f1;
+}
+
+.semicolon {
+  content: "semicolon";
+}
+
+.nesting {
+  .child-1 {
+    .child-2 {
+      .child-3 {
+        content: "nesting";
+      }
+    }
+  }
+}
+
+.new-line-after-brackets {
+  content: "content";
+}
+
+.float-number {
+  font-size: .5;
+}

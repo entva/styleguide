@@ -1,0 +1,5 @@
+test/
+.eslintrc
+.gitignore
+.npmignore
+.stylelintrc
