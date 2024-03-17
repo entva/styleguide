@@ -1,4 +1,4 @@
-.amotherClassName {
+.anotherClassName {
   // expect: property-no-unknown, value-keyword-case
   composes: className from "./other.module.scss";
 }

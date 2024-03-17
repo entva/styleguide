@@ -12,6 +12,9 @@ module.exports = {
         singleline: { delimiter: 'comma' },
       },
     ],
-    '@typescript-eslint/no-explicit-any': 'error',
+    '@typescript-eslint/no-explicit-any': [
+      'error',
+      { ignoreRestArgs: true },
+    ],
   },
 };

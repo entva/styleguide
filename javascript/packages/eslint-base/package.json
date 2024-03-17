@@ -6,7 +6,7 @@
   "readmeFilename": "README.md",
   "repository": "entva/styleguide",
   "bugs": "https://github.com/entva/styleguide/issues",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "keywords": [
     "linter",
     "config",
@@ -20,12 +20,12 @@
     "prepublishOnly": "npm test"
   },
   "devDependencies": {
-    "eslint": "^8.45.0"
+    "eslint": "^8.57.0"
   },
   "dependencies": {
     "eslint-config-airbnb-base": "15.0.0",
     "eslint-import-resolver-alias": "^1.1.2",
-    "eslint-plugin-import": "^2.27.5"
+    "eslint-plugin-import": "^2.29.1"
   },
   "peerDependencies": {
     "eslint": "^8.x.x"
