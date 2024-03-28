@@ -10,9 +10,12 @@ const processFile = (result) => {
   if (errorsTest.length) throw `Errors found:\n${errorsTest.join('\n')}`;
 };
 
-module.exports = async (dir, ext = 'scss') => {
+module.exports = async (dir, exts = 'css,scss') => {
   try {
-    const report = await stylelint.lint({ files: join(dir, `**/**.${ext}`) });
+    const report = await stylelint.lint({
+      files: exts.split(',').map((ext) => join(dir, `**/**.${ext}`)),
+      quietDeprecationWarnings: true,
+    });
     report.results.forEach(processFile);
   } catch (err) {
     console.error(err);

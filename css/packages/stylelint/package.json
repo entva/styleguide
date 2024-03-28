@@ -6,7 +6,7 @@
   "readmeFilename": "README.md",
   "repository": "entva/styleguide",
   "bugs": "https://github.com/entva/styleguide/issues",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "keywords": [
     "linter",
     "config",
@@ -24,15 +24,15 @@
   "devDependencies": {
     "eslint": "^8.46.0",
     "eslint-config-entva-base": "^1.0.0",
-    "stylelint": "^15.10.0"
+    "stylelint": "^16.3.1"
   },
   "dependencies": {
-    "stylelint-config-standard": "^34.0.0",
-    "stylelint-config-standard-scss": "^10.0.0",
+    "stylelint-config-standard": "^36.0.0",
+    "stylelint-config-standard-scss": "^13.0.0",
     "stylelint-order": "^6.0.3",
-    "stylelint-scss": "^5.0.1"
+    "stylelint-scss": "^6.2.1"
   },
   "peerDependencies": {
-    "stylelint": "^15.x.x"
+    "stylelint": "^16.x.x"
   }
 }
