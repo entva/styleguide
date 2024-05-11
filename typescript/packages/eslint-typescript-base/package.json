@@ -1,0 +1,35 @@
+{
+  "name": "eslint-config-entva-typescript-base",
+  "description": "Shareable typescript styleguide config for eslint",
+  "author": "Max Degterev <max@degterev.me>",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "repository": "entva/styleguide",
+  "bugs": "https://github.com/entva/styleguide/issues",
+  "version": "1.0.0",
+  "keywords": [
+    "linter",
+    "config",
+    "eslint",
+    "typescript"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "reinstall": "rm -rf node_modules package-lock.json && npm install",
+    "test": "node ../../../test ./test js ts",
+    "rules": "node_modules/.bin/eslint --print-config file.js > eslint-ruleset-output.json",
+    "prepublishOnly": "npm test"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0"
+  },
+  "dependencies": {
+    "eslint-config-entva-base": "^1.1.0",
+    "@typescript-eslint/eslint-plugin": "^7.8.0",
+    "@typescript-eslint/parser": "^7.8.0",
+    "eslint-config-airbnb-typescript": "^18.0.0"
+  },
+  "peerDependencies": {
+    "eslint": "^8.x.x"
+  }
+}
