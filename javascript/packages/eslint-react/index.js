@@ -20,6 +20,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'off',
     'react/display-name': 'off',
     'react/jsx-one-expression-per-line': 'off', // doesn't let write sentences in React
+    'jsx-quotes': ['error', 'prefer-double'],
 
     'jsx-a11y/anchor-is-valid': 'off',
     'jsx-a11y/anchor-has-content': 'off',

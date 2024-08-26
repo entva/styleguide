@@ -6,7 +6,7 @@
   "readmeFilename": "README.md",
   "repository": "entva/styleguide",
   "bugs": "https://github.com/entva/styleguide/issues",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "keywords": [
     "linter",
     "config",
@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-entva-base": "^1.0.0",
+    "eslint-config-entva-base": "^1.1.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-react": "^7.34.1",

@@ -15,6 +15,8 @@ const Keys = [].map((item) => (
 
 const Ref = () => <div ref={(el) => el} />;
 
+const Quote = () => <div data-thing="hello" />;
+
 const Empty = () => <div />;
 
 class RenderRequired extends Component {
