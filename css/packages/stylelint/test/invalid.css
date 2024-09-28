@@ -1,0 +1,48 @@
+// expect: selector-list-comma-newline-after
+.no, .nope {
+  content: "declaration of multiple selectors";
+}
+
+// expect: selector-class-pattern
+.bad_naming {
+  content: "selector naming";
+}
+
+// expect: selector-max-id
+#id-selector {
+  content: "id selects";
+}
+
+.color-value {
+  content: "color value";
+
+  // expect: color-named
+  color: hotpink;
+}
+
+.semicolon {
+  // expect: declaration-block-trailing-semicolon
+  content: "semicolon"
+}
+
+// expect: block-no-empty
+.empty-block {
+
+}
+
+.invalid {
+  content: "invalid css";
+};
+
+.extend-forbidden {
+  // expect: at-rule-disallowed-list
+  @extend %placeholder;
+}
+
+// expect: block-opening-brace-newline-after, block-closing-brace-newline-before
+.new-line-after-brackets { content: "content"; }
+
+.float-number {
+  // expect: number-leading-zero
+  font-size: 0.5;
+}
