@@ -6,4 +6,3 @@ export type MyType = {
 };
 
 export const __dirname = 'blah';
-
