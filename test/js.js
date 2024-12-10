@@ -25,7 +25,7 @@ const processFile = (file) => {
 const run = async (dir, ext = 'js') => {
   const { ESLint } = await loadESLint();
   const eslint = new ESLint({ overrideConfigFile: resolve(process.cwd(), 'index.js') });
-  const result = await eslint.lintFiles(dir, `**/*.${ext}`);
+  const result = await eslint.lintFiles(`${dir}/**/*.${ext}`);
 
   const isSuccess = result.map(processFile).every(r => r);
 

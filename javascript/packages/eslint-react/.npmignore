@@ -3,3 +3,5 @@ test/
 .gitignore
 .npmignore
 eslint-ruleset-output.json
+eslint-ruleset-output-filtered.json
+filter.js

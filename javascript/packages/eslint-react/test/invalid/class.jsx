@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars, max-classes-per-file */
+/* eslint-disable no-unused-vars */
 const React = {};
 
 // expect: react/no-deprecated
