@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['entva', 'airbnb-typescript'],
+  extends: ['entva-base', 'airbnb-typescript/base'],
   parserOptions: {
     parser: '@typescript-eslint/parser',
     project: './tsconfig.json',
@@ -15,6 +15,17 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': [
       'error',
       { ignoreRestArgs: true },
+    ],
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        '': 'never',
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
     ],
     '@typescript-eslint/naming-convention': [
       'error',
