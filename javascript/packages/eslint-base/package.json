@@ -4,7 +4,10 @@
   "author": "Max Degterev <max@degterev.me>",
   "license": "MIT",
   "readmeFilename": "README.md",
-  "repository": "entva/styleguide",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/entva/styleguide"
+  },
   "bugs": "https://github.com/entva/styleguide/issues",
   "version": "2.0.0",
   "keywords": [
