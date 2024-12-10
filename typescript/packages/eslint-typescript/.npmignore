@@ -1,5 +1,0 @@
-test/
-.eslintrc
-.gitignore
-.npmignore
-eslint-ruleset-output.json
