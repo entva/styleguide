@@ -1,11 +1,12 @@
 import { resolve } from 'path';
+import fs from 'fs';
 import { collectLinterErrors, createTestErrorsCollector } from './utils.js';
 
+// ESM is very convenient and doesn't require any workarounds for the CJS dynamic import
 const loadESLint = async () => {
   const cwd = process.cwd();
-  const pkg = await import(resolve(cwd, 'node_modules/eslint'));
-  console.log(pkg);
-  const eslintPath = resolve(cwd, 'node_modules/eslint/lib/api.js');
+  const pkg = JSON.parse(fs.readFileSync(resolve(cwd, 'node_modules/eslint/package.json'), 'utf8'));
+  const eslintPath = resolve(cwd, 'node_modules/eslint', pkg.main);
   return import(eslintPath);
 };
 
