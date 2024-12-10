@@ -746,7 +746,7 @@ export default [{
     'no-extra-semi': ['error'],
     'no-func-assign': ['error'],
     'no-import-assign': ['error'],
-    'no-inner-declarations': ['error'],
+    'no-inner-declarations': ['error', 'functions', { blockScopedFunctions: 'disallow' }],
     'no-invalid-regexp': ['error'],
     'no-irregular-whitespace': ['error'],
     'no-loss-of-precision': ['error'],

@@ -6,6 +6,8 @@ import 'chalk';
 // expect: import/no-duplicates
 import module from '../../index';
 // expect: import/no-duplicates
+import sameThing from '../../index';
+// expect: import/named, import/no-duplicates
 import { some } from '../../index';
 
 // expect: import/no-unresolved
