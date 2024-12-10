@@ -3,6 +3,8 @@ import { collectLinterErrors, createTestErrorsCollector } from './utils.js';
 
 const loadESLint = async () => {
   const cwd = process.cwd();
+  const pkg = await import(resolve(cwd, 'node_modules/eslint'));
+  console.log(pkg);
   const eslintPath = resolve(cwd, 'node_modules/eslint/lib/api.js');
   return import(eslintPath);
 };
