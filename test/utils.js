@@ -1,6 +1,5 @@
-const { readFileSync } = require('fs');
-const { relative } = require('path');
-
+import { readFileSync } from 'fs';
+import { relative } from 'path';
 
 const specPrefix = '// expect:';
 
@@ -28,7 +27,7 @@ const findSpecLineIndex = (line, fileLines) => {
   return line - 2;
 };
 
-exports.collectLinterErrors = (acc, { line, ruleId, rule }) => {
+export const collectLinterErrors = (acc, { line, ruleId, rule }) => {
   const lineRecord = acc.find((item) => item.line === line);
   const ruleKey = ruleId || rule;
 
@@ -41,7 +40,7 @@ exports.collectLinterErrors = (acc, { line, ruleId, rule }) => {
   return acc;
 };
 
-exports.createTestErrorsCollector = (filePath) => {
+export const createTestErrorsCollector = (filePath) => {
   const fileLines = readFileSync(filePath, 'utf8').split('\n');
 
   return (acc, { line, rules }) => {
