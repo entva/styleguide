@@ -2,7 +2,7 @@
 
 > Shareable entva styleguide config for eslint.
 
-Extends [`eslint-config-airbnb-base`](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb-base).
+Picked up where [`eslint-config-airbnb-base`](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb-base) left off.
 
 A shareable config to enforce entva styleguide: https://github.com/entva/styleguide
 

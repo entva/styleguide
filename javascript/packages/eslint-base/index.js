@@ -1,7 +1,7 @@
 import importPlugin from 'eslint-plugin-import';
 import globals from 'globals';
 
-export default [{
+export default {
   plugins: {
     import: importPlugin,
   },
@@ -30,7 +30,7 @@ export default [{
       },
     },
 
-    'import/extensions': ['.js', '.mjs', '.jsx'],
+    'import/extensions': ['.mjs', '.js', '.json'],
     'import/core-modules': [],
     'import/ignore': ['node_modules', '\\.(coffee|scss|css|less|hbs|svg|json)$'],
   },
@@ -154,9 +154,6 @@ export default [{
         '**/webpack.config.*.js',
         '**/rollup.config.js',
         '**/rollup.config.*.js',
-        '**/gulpfile.js',
-        '**/gulpfile.*.js',
-        '**/Gruntfile{,.js}',
         '**/protractor.conf.js',
         '**/protractor.conf.*.js',
         '**/karma.conf.js',
@@ -995,4 +992,4 @@ export default [{
 
     yoda: ['error'],
   },
-}];
+};
