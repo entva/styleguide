@@ -1,0 +1,37 @@
+{
+  "name": "@entva/styleguide",
+  "description": "Shareable styleguide config for biome",
+  "author": "Max Degterev <max@degterev.me>",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/entva/styleguide"
+  },
+  "bugs": "https://github.com/entva/styleguide/issues",
+  "version": "1.0.0",
+  "keywords": [
+    "linter",
+    "config",
+    "eslint",
+    "biome",
+    "styleguide",
+    "typescript"
+  ],
+  "files": [
+    "biome.json"
+  ],
+  "type": "module",
+  "exports": {
+    "./biome": "./biome.json"
+  },
+  "scripts": {
+    "reinstall": "rm -rf node_modules package-lock.json && npm install"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4"
+  },
+  "peerDependencies": {
+    "@biomejs/biome": "^1.x.x"
+  }
+}
