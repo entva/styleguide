@@ -26,7 +26,8 @@
     "./biome": "./biome.json"
   },
   "scripts": {
-    "reinstall": "rm -rf node_modules package-lock.json && npm install"
+    "reinstall": "rm -rf node_modules package-lock.json && npm install",
+    "test": "echo \"Not supported by Biome\" && exit 0"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4"
