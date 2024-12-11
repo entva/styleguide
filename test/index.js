@@ -1,2 +1,7 @@
 const [dir, type, ext] = process.argv.slice(2)
-require(`./${type}`)(dir, ext);
+const run = async () => {
+  const { default: fn } = await import(`./${type}.js`);
+  fn(dir, ext);
+};
+
+run();

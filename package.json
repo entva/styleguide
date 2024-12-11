@@ -6,6 +6,7 @@
   "readmeFilename": "README.md",
   "repository": "entva/styleguide",
   "bugs": "https://github.com/entva/styleguide",
+  "type": "module",
   "scripts": {
     "preinstall": "scripts/for-each-package npm install",
     "test": "scripts/for-each-package npm run test",

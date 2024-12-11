@@ -1,6 +1,6 @@
 {
-  "name": "eslint-config-entva-base",
-  "description": "Shareable entva styleguide config for eslint",
+  "name": "@entva/styleguide",
+  "description": "Shareable styleguide config for biome",
   "author": "Max Degterev <max@degterev.me>",
   "license": "MIT",
   "readmeFilename": "README.md",
@@ -9,28 +9,30 @@
     "url": "https://github.com/entva/styleguide"
   },
   "bugs": "https://github.com/entva/styleguide/issues",
-  "version": "2.1.0",
+  "version": "1.0.0",
   "keywords": [
     "linter",
     "config",
-    "eslint"
+    "eslint",
+    "biome",
+    "styleguide",
+    "typescript"
+  ],
+  "files": [
+    "biome.json"
   ],
   "type": "module",
-  "main": "index.js",
+  "exports": {
+    "./biome": "./biome.json"
+  },
   "scripts": {
     "reinstall": "rm -rf node_modules package-lock.json && npm install",
-    "test": "node ../../../test ./test js",
-    "rules": "eslint --print-config file.js > eslint-ruleset-output.json",
-    "prepublishOnly": "npm test"
+    "test": "echo \"Not supported by Biome\" && exit 0"
   },
   "devDependencies": {
-    "eslint": "^9.16.0"
-  },
-  "dependencies": {
-    "eslint-plugin-import": "^2.31.0",
-    "globals": "^15.13.0"
+    "@biomejs/biome": "^1.9.4"
   },
   "peerDependencies": {
-    "eslint": "^9.x.x"
+    "@biomejs/biome": "^1.x.x"
   }
 }
