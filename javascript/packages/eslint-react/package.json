@@ -9,7 +9,7 @@
     "url": "https://github.com/entva/styleguide"
   },
   "bugs": "https://github.com/entva/styleguide/issues",
-  "version": "2.2.0",
+  "version": "2.4.0",
   "keywords": [
     "linter",
     "config",
@@ -21,7 +21,7 @@
   "scripts": {
     "reinstall": "rm -rf node_modules package-lock.json && npm install",
     "test": "node ../../../test ./test js jsx",
-    "rules": "eslint --print-config file.js > eslint-ruleset-output.json",
+    "rules": "eslint --print-config file.jsx > eslint-ruleset-output.json",
     "prepublishOnly": "npm test"
   },
   "devDependencies": {
@@ -29,7 +29,7 @@
     "react": "^19.0.0"
   },
   "dependencies": {
-    "eslint-config-entva-base": "^2.3.0",
+    "eslint-config-entva-base": "^2.4.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.2",

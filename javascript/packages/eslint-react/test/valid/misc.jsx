@@ -19,6 +19,8 @@ const Quote = () => <div data-thing="hello" />;
 
 const Empty = () => <div />;
 
+const ImageNoAlt = () => <img src="image.png" />;
+
 class RenderRequired extends Component {
   render() {
     return <div>{this.content}</div>;

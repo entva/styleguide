@@ -21,7 +21,7 @@
   "scripts": {
     "reinstall": "rm -rf node_modules package-lock.json && npm install",
     "test": "node ../../../test ./test js ts",
-    "rules": "node_modules/.bin/eslint --print-config file.js > eslint-ruleset-output.json",
+    "rules": "node_modules/.bin/eslint --print-config file.ts > eslint-ruleset-output.json",
     "prepublishOnly": "npm test"
   },
   "devDependencies": {
