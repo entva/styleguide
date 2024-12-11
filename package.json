@@ -7,6 +7,7 @@
   "repository": "entva/styleguide",
   "bugs": "https://github.com/entva/styleguide",
   "type": "module",
+  "files": [],
   "scripts": {
     "preinstall": "scripts/for-each-package npm install",
     "test": "scripts/for-each-package npm run test",

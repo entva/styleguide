@@ -20,6 +20,12 @@ export default [
   },
   {
     files: ['**/*.{js,mjs,cjs,ts}'],
+    ignores: [
+      '**/node_modules/',
+      '**/public/',
+      '**/coverage/',
+      '**/.*',
+    ],
     plugins: {
       import: importPlugin,
       '@typescript-eslint': typescriptEslint,
@@ -113,7 +119,7 @@ export default [
         after: true,
       }],
 
-      'default-param-last': 'off',
+      'default-param-last': ['off'],
       '@typescript-eslint/default-param-last': ['error'],
 
       '@typescript-eslint/dot-notation': ['error', {
@@ -227,7 +233,7 @@ export default [
       '@typescript-eslint/no-redeclare': ['error'],
       '@stylistic/ts/space-before-blocks': ['error'],
 
-      'no-shadow': 'off',
+      'no-shadow': ['off'],
       '@typescript-eslint/no-shadow': ['error'],
 
       '@typescript-eslint/no-unused-expressions': ['error', {
@@ -237,7 +243,7 @@ export default [
         enforceForJSX: false,
       }],
 
-      'no-unused-vars': 'off',
+      'no-unused-vars': ['off'],
       '@typescript-eslint/no-unused-vars': ['error', {
         vars: 'all',
         args: 'after-used',
