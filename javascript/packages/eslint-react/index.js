@@ -8,6 +8,17 @@ import globals from 'globals';
 export default [
   ...baseConfig,
   {
+    files: [
+      '**/*.test.jsx',
+      '**/*.spec.jsx',
+    ],
+    languageOptions: {
+      globals: {
+        ...globals.jest,
+      },
+    },
+  },
+  {
     files: ['**/*.{js,mjs,cjs,jsx}'],
     plugins: {
       react,
@@ -105,11 +116,9 @@ export default [
       }],
 
       'react/no-unused-class-component-methods': ['off'],
-      'react-hooks/exhaustive-deps': ['off'],
+      'react-hooks/exhaustive-deps': 'off',
 
-      'react/display-name': ['off', {
-        ignoreTranspilerName: false,
-      }],
+      'react/display-name': 'off',
 
       'react/jsx-one-expression-per-line': ['off', {
         allow: 'single-child',
@@ -197,13 +206,7 @@ export default [
       'react-hooks/rules-of-hooks': ['error'],
       'jsx-a11y/accessible-emoji': ['off'],
 
-      'jsx-a11y/alt-text': ['error', {
-        elements: ['img', 'object', 'area', 'input[type=\'image\']'],
-        img: [],
-        object: [],
-        area: [],
-        'input[type=\'image\']': [],
-      }],
+      'jsx-a11y/alt-text': 'off',
 
       'jsx-a11y/aria-activedescendant-has-tabindex': ['error'],
       'jsx-a11y/aria-props': ['error'],

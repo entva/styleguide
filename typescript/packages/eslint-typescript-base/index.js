@@ -8,6 +8,17 @@ import stylisticTs from '@stylistic/eslint-plugin-ts';
 export default [
   ...baseConfig,
   {
+    files: [
+      '**/*.test.tsx',
+      '**/*.spec.tsx',
+    ],
+    languageOptions: {
+      globals: {
+        ...globals.jest,
+      },
+    },
+  },
+  {
     files: ['**/*.{js,mjs,cjs,ts}'],
     plugins: {
       import: importPlugin,
@@ -102,6 +113,7 @@ export default [
         after: true,
       }],
 
+      'default-param-last': 'off',
       '@typescript-eslint/default-param-last': ['error'],
 
       '@typescript-eslint/dot-notation': ['error', {
@@ -213,8 +225,10 @@ export default [
       }],
 
       '@typescript-eslint/no-redeclare': ['error'],
-      '@typescript-eslint/no-shadow': ['error'],
       '@stylistic/ts/space-before-blocks': ['error'],
+
+      'no-shadow': 'off',
+      '@typescript-eslint/no-shadow': ['error'],
 
       '@typescript-eslint/no-unused-expressions': ['error', {
         allowShortCircuit: false,
@@ -223,10 +237,12 @@ export default [
         enforceForJSX: false,
       }],
 
+      'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': ['error', {
         vars: 'all',
         args: 'after-used',
         ignoreRestSiblings: true,
+        caughtErrors: 'none',
       }],
 
       '@typescript-eslint/no-use-before-define': ['error', {

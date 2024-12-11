@@ -4,11 +4,9 @@ import globals from 'globals';
 export default [
   {
     files: [
-      '**/*.test.ts',
       '**/*.test.js',
       '**/*.test.cjs',
       '**/*.test.mjs',
-      '**/*.spec.ts',
       '**/*.spec.js',
       '**/*.spec.cjs',
       '**/*.spec.mjs',
@@ -26,6 +24,12 @@ export default [
     },
 
     ignores: [
+      '**/node_modules/',
+      '**/public/',
+      '**/dist/',
+      '**/build/',
+      '**/migrations/',
+      '**/coverage/',
       '**/.*',
     ],
 
