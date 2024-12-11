@@ -8,6 +8,17 @@ export default [
   ...baseConfig,
   ...tsConfig,
   {
+    files: [
+      '**/*.test.tsx',
+      '**/*.spec.tsx',
+    ],
+    languageOptions: {
+      globals: {
+        ...globals.jest,
+      },
+    },
+  },
+  {
     files: ['**/*.{js,mjs,cjs,ts,tsx}'],
     plugins: {
       import: importPlugin,

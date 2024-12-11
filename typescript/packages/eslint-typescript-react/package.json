@@ -30,8 +30,8 @@
   },
   "dependencies": {
     "@typescript-eslint/parser": "^8.18.0",
-    "eslint-config-entva": "^2.0.0",
-    "eslint-config-entva-typescript-base": "^2.0.0",
+    "eslint-config-entva": "^2.2.0",
+    "eslint-config-entva-typescript-base": "^2.2.0",
     "eslint-plugin-import": "^2.31.0",
     "globals": "^15.13.0"
   },

@@ -9,8 +9,8 @@ export default [
   ...baseConfig,
   {
     files: [
-      '**/*.test.tsx',
-      '**/*.spec.tsx',
+      '**/*.test.ts',
+      '**/*.spec.ts',
     ],
     languageOptions: {
       globals: {

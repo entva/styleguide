@@ -9,7 +9,7 @@
     "url": "https://github.com/entva/styleguide"
   },
   "bugs": "https://github.com/entva/styleguide/issues",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "keywords": [
     "linter",
     "config",
