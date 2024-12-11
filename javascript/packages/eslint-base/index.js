@@ -26,9 +26,6 @@ export default [
     ignores: [
       '**/node_modules/',
       '**/public/',
-      '**/dist/',
-      '**/build/',
-      '**/migrations/',
       '**/coverage/',
       '**/.*',
     ],
