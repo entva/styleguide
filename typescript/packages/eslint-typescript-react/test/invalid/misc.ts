@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars, no-unused-vars */
 
 export type MyType = {
-  // expect: @typescript-eslint/member-delimiter-style
+  // expect: @stylistic/ts/member-delimiter-style
   prop: string;
 };
 
