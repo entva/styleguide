@@ -1,8 +1,25 @@
 import baseConfig from 'eslint-config-entva';
 import tsConfig from 'eslint-config-entva-typescript-base';
-import tsParser from '@typescript-eslint/parser';
+import react from 'eslint-plugin-react';
+import jsxA11Y from 'eslint-plugin-jsx-a11y';
+import reactHooks from 'eslint-plugin-react-hooks';
 import importPlugin from 'eslint-plugin-import';
 import globals from 'globals';
+import typescriptEslint from '@typescript-eslint/eslint-plugin';
+import tsParser from '@typescript-eslint/parser';
+import stylisticTs from '@stylistic/eslint-plugin-ts';
+
+// ESLint 9 is shit at merging config rules so we have to do it by hand.
+// Thanks ESLint <3
+const baseRules = [...baseConfig, ...tsConfig].reduce((acc, config) => {
+  if (config.rules) {
+    Object.keys(config.rules).forEach((rule) => {
+      acc[rule] = config.rules[rule];
+    });
+  }
+
+  return acc;
+}, {});
 
 export default [
   ...baseConfig,
@@ -20,8 +37,19 @@ export default [
   },
   {
     files: ['**/*.{js,mjs,cjs,ts,tsx}'],
+    ignores: [
+      '**/node_modules/',
+      '**/public/',
+      '**/coverage/',
+      '**/.*',
+    ],
     plugins: {
+      react,
+      'jsx-a11y': jsxA11Y,
+      'react-hooks': reactHooks,
       import: importPlugin,
+      '@typescript-eslint': typescriptEslint,
+      '@stylistic/ts': stylisticTs,
     },
 
     languageOptions: {
@@ -47,14 +75,14 @@ export default [
     },
 
     settings: {
+      'import/parsers': {
+        '@typescript-eslint/parser': ['.ts', '.tsx', '.d.ts'],
+      },
+
       'import/resolver': {
         node: {
           extensions: ['.mjs', '.js', '.json', '.jsx', '.ts', '.tsx', '.d.ts'],
         },
-      },
-
-      'import/parsers': {
-        '@typescript-eslint/parser': ['.ts', '.tsx', '.d.ts'],
       },
 
       'import/extensions': ['.mjs', '.js', '.json', '.jsx', '.ts', '.tsx', '.d.ts'],
@@ -70,6 +98,11 @@ export default [
       propWrapperFunctions: ['forbidExtraProps', 'exact', 'Object.freeze'],
     },
 
-    rules: {},
+    rules: {
+      ...baseRules,
+      'react/jsx-filename-extension': ['error', {
+        extensions: ['.jsx', '.tsx'],
+      }],
+    },
   },
 ];
