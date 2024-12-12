@@ -11,34 +11,15 @@ import stylisticTs from '@stylistic/eslint-plugin-ts';
 
 // ESLint 9 is shit at merging config rules so we have to do it by hand.
 // Thanks ESLint <3
-const baseRules = [...baseConfig, ...tsConfig].reduce((acc, config) => (
-  Object.keys(config.rules).forEach((rule) => {
-    acc[rule] = config.rules[rule];
-  })
-), {});
+const baseRules = [...baseConfig, ...tsConfig].reduce((acc, config) => ({
+  ...acc, ...config.rules,
+}), {});
 
 export default [
   ...baseConfig,
   ...tsConfig,
   {
-    files: [
-      '**/*.test.tsx',
-      '**/*.spec.tsx',
-    ],
-    languageOptions: {
-      globals: {
-        ...globals.jest,
-      },
-    },
-  },
-  {
-    files: ['**/*.{js,mjs,cjs,ts,tsx}'],
-    ignores: [
-      '**/.*',
-      '**/node_modules/',
-      '**/public/',
-      '**/coverage/',
-    ],
+    files: ['**/*.tsx'],
     plugins: {
       react,
       'jsx-a11y': jsxA11Y,
@@ -77,11 +58,11 @@ export default [
 
       'import/resolver': {
         node: {
-          extensions: ['.mjs', '.js', '.json', '.jsx', '.ts', '.tsx', '.d.ts'],
+          extensions: ['.js', '.mjs', '.cjs', '.jsx', '.ts', '.tsx', '.d.ts', '.json'],
         },
       },
 
-      'import/extensions': ['.mjs', '.js', '.json', '.jsx', '.ts', '.tsx', '.d.ts'],
+      'import/extensions': ['.js', '.mjs', '.cjs', '.jsx', '.ts', '.tsx', '.d.ts', '.json'],
       'import/external-module-folders': ['node_modules', 'node_modules/@types'],
       'import/core-modules': [],
       'import/ignore': ['node_modules', '\\.(coffee|scss|css|less|hbs|svg|json)$'],
