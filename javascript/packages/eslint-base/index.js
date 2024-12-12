@@ -3,6 +3,16 @@ import globals from 'globals';
 
 export default [
   {
+    // Why separate config? ESLint 9 is fucked up broken: https://github.com/eslint/eslint/discussions/18304
+    ignores: [
+      '**/.*',
+      '**/node_modules/**',
+      '**/public/**',
+      '**/coverage/**',
+      '**/migrations/**',
+    ],
+  },
+  {
     files: [
       '**/*.test.js',
       '**/*.test.cjs',
@@ -22,13 +32,6 @@ export default [
     plugins: {
       import: importPlugin,
     },
-
-    ignores: [
-      '**/.*',
-      '**/node_modules/',
-      '**/public/',
-      '**/coverage/',
-    ],
 
     languageOptions: {
       globals: {

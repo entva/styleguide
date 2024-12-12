@@ -21,10 +21,10 @@ export default [
   {
     files: ['**/*.{js,mjs,cjs,ts}'],
     ignores: [
+      '**/.*',
       '**/node_modules/',
       '**/public/',
       '**/coverage/',
-      '**/.*',
     ],
     plugins: {
       import: importPlugin,

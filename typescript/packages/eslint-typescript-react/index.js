@@ -38,10 +38,10 @@ export default [
   {
     files: ['**/*.{js,mjs,cjs,ts,tsx}'],
     ignores: [
+      '**/.*',
       '**/node_modules/',
       '**/public/',
       '**/coverage/',
-      '**/.*',
     ],
     plugins: {
       react,
