@@ -1,4 +1,11 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+export type MyType = {
+  prop: string,
+  otherProp: number,
+};
+
+export const __dirname = 'blah';
 const Component = {};
 
 const Alignment = (
@@ -9,7 +16,7 @@ const Alignment = (
 
 const CurlySpacing = <div className={`class${1}`} />;
 
-const Keys = [].map((item) => (
+const Keys = ([] as string[]).map((item: string) => (
   <div key={item} />
 ));
 

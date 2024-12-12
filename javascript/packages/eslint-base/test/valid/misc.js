@@ -79,3 +79,9 @@ const commaStyle = [
 
 const optionalChaining = computedPropObj?.nonExistant?.notThere;
 const nullishCoalescing = computedPropObj.key ?? 300;
+
+try {
+  console.warn('Can use try');
+} catch (_) {
+  console.warn('Ignores error');
+}

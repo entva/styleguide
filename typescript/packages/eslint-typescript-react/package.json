@@ -9,7 +9,7 @@
     "url": "https://github.com/entva/styleguide"
   },
   "bugs": "https://github.com/entva/styleguide/issues",
-  "version": "2.0.0",
+  "version": "2.5.0",
   "keywords": [
     "linter",
     "config",
@@ -20,18 +20,27 @@
   "main": "index.js",
   "scripts": {
     "reinstall": "rm -rf node_modules package-lock.json && npm install",
-    "test": "node ../../../test ./test js ts",
-    "rules": "node_modules/.bin/eslint --print-config file.js > eslint-ruleset-output.json",
+    "test": "node ../../../test ./test js tsx",
+    "rules": "node_modules/.bin/eslint --print-config file.tsx > eslint-ruleset-output.json",
     "prepublishOnly": "npm test"
   },
   "devDependencies": {
+    "@types/node": "^22.10.1",
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.2",
+    "eslint": "^9.16.0",
     "react": "^19.0.0",
-    "eslint": "^9.16.0"
+    "typescript": "^5.7.2"
   },
   "dependencies": {
+    "@stylistic/eslint-plugin-ts": "^2.12.1",
+    "@typescript-eslint/eslint-plugin": "^8.18.0",
     "@typescript-eslint/parser": "^8.18.0",
-    "eslint-config-entva": "^2.0.0",
-    "eslint-config-entva-typescript-base": "^2.0.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-config-entva": "^2.5.0",
+    "eslint-config-entva-typescript-base": "^2.5.0",
     "eslint-plugin-import": "^2.31.0",
     "globals": "^15.13.0"
   },
