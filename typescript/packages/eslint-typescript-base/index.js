@@ -74,6 +74,13 @@ export default [
       'import/external-module-folders': ['node_modules', 'node_modules/@types'],
       'import/core-modules': [],
       'import/ignore': ['node_modules', '\\.(coffee|scss|css|less|hbs|svg|json)$'],
+
+      react: {
+        pragma: 'React',
+        version: 'detect',
+      },
+
+      propWrapperFunctions: ['forbidExtraProps', 'exact', 'Object.freeze'],
     },
 
     rules: {

@@ -49,6 +49,7 @@ export default [
         ecmaFeatures: {
           generators: false,
           objectLiteralDuplicateProperties: false,
+          jsx: true,
         },
       },
     },
@@ -63,6 +64,13 @@ export default [
       'import/extensions': ['.js', '.mjs', '.cjs', '.jsx', '.json'],
       'import/core-modules': [],
       'import/ignore': ['node_modules', '\\.(coffee|scss|css|less|hbs|svg|json)$'],
+
+      react: {
+        pragma: 'React',
+        version: 'detect',
+      },
+
+      propWrapperFunctions: ['forbidExtraProps', 'exact', 'Object.freeze'],
     },
 
     rules: {

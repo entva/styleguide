@@ -8,7 +8,7 @@ import globals from 'globals';
 export default [
   ...baseConfig,
   {
-    files: ['**/*.jsx'],
+    files: ['**/*.{js,mjs,cjs,jsx}'],
     plugins: {
       react,
       'jsx-a11y': jsxA11Y,

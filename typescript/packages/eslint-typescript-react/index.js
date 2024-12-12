@@ -19,7 +19,7 @@ export default [
   ...baseConfig,
   ...tsConfig,
   {
-    files: ['**/*.tsx'],
+    files: ['**/*.{ts,tsx}'],
     plugins: {
       react,
       'jsx-a11y': jsxA11Y,
