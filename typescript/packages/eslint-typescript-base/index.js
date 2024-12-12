@@ -5,12 +5,31 @@ import typescriptEslint from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
 import stylisticTs from '@stylistic/eslint-plugin-ts';
 
+
+const baseRules = baseConfig.reduce((acc, config) => {
+  Object.keys(config.rules || {}).forEach((rule) => {
+    acc[rule] = config.rules[rule];
+  });
+  return acc;
+}, {});
+
+// Many TS rules mirror JS rules, we need to disable JS rule and apply config for the TS replacement
+const getOverrides = (rules, overridePrefix) => rules.reduce((acc, rule) => {
+  const config = baseRules[rule];
+  if (!config) return acc;
+  acc[rule] = ['off'];
+  acc[`${overridePrefix}/${rule}`] = config;
+  return acc;
+}, {});
+
 export default [
   ...baseConfig,
   {
     files: [
       '**/*.test.ts',
+      '**/*.test.tsx',
       '**/*.spec.ts',
+      '**/*.spec.tsx',
     ],
     languageOptions: {
       globals: {
@@ -19,7 +38,7 @@ export default [
     },
   },
   {
-    files: ['**/*.ts'],
+    files: ['**/*.{ts,tsx}'],
     plugins: {
       import: importPlugin,
       '@typescript-eslint': typescriptEslint,
@@ -43,6 +62,7 @@ export default [
         ecmaFeatures: {
           generators: false,
           objectLiteralDuplicateProperties: false,
+          jsx: true,
         },
       },
     },
@@ -54,17 +74,50 @@ export default [
 
       'import/resolver': {
         node: {
-          extensions: ['.mjs', '.js', '.json', '.ts', '.d.ts'],
+          extensions: ['.js', '.mjs', '.cjs', '.jsx', '.ts', '.tsx', '.d.ts', '.json'],
         },
       },
 
-      'import/extensions': ['.mjs', '.js', '.json', '.ts', '.d.ts'],
+      'import/extensions': ['.js', '.mjs', '.cjs', '.jsx', '.ts', '.tsx', '.d.ts', '.json'],
       'import/external-module-folders': ['node_modules', 'node_modules/@types'],
       'import/core-modules': [],
       'import/ignore': ['node_modules', '\\.(coffee|scss|css|less|hbs|svg|json)$'],
     },
 
     rules: {
+      ...baseRules,
+      ...getOverrides(
+        [
+          'no-array-constructor',
+          'no-useless-constructor',
+          'no-empty-function',
+          'no-dupe-class-members',
+          'default-param-last',
+          'dot-notation',
+          'naming-convention',
+          'no-unused-vars',
+          'no-shadow',
+        ],
+        '@typescript-eslint',
+      ),
+      ...getOverrides(
+        [
+          'space-before-function-paren',
+          'lines-between-class-members',
+          'space-before-blocks',
+          'space-before-function-paren',
+          'brace-style',
+          'indent',
+          'space-before-blocks',
+          'keyword-spacing',
+          'space-infix-ops',
+          'comma-spacing',
+          'comma-dangle',
+          'object-curly-spacing',
+          'quotes',
+        ],
+        '@stylistic/ts',
+      ),
       '@stylistic/ts/member-delimiter-style': ['error', {
         multiline: {
           delimiter: 'comma',
@@ -112,9 +165,6 @@ export default [
         before: false,
         after: true,
       }],
-
-      'default-param-last': ['off'],
-      '@typescript-eslint/default-param-last': ['error'],
 
       '@typescript-eslint/dot-notation': ['error', {
         allowKeywords: true,
@@ -227,9 +277,6 @@ export default [
       '@typescript-eslint/no-redeclare': ['error'],
       '@stylistic/ts/space-before-blocks': ['error'],
 
-      'no-shadow': ['off'],
-      '@typescript-eslint/no-shadow': ['error'],
-
       '@typescript-eslint/no-unused-expressions': ['error', {
         allowShortCircuit: false,
         allowTernary: false,
@@ -237,13 +284,6 @@ export default [
         enforceForJSX: false,
       }],
 
-      'no-unused-vars': ['off'],
-      '@typescript-eslint/no-unused-vars': ['error', {
-        vars: 'all',
-        args: 'after-used',
-        ignoreRestSiblings: true,
-        caughtErrors: 'none',
-      }],
 
       '@typescript-eslint/no-use-before-define': ['error', {
         functions: true,
