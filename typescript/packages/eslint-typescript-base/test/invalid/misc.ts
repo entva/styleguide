@@ -3,6 +3,8 @@
 export type MyType = {
   // expect: @stylistic/ts/member-delimiter-style
   prop: string;
+  // expect: @stylistic/ts/type-annotation-spacing
+  other:boolean,
 };
 
 // expect: @typescript-eslint/no-explicit-any

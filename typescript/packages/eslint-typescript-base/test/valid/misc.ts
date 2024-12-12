@@ -5,6 +5,14 @@ export type MyType = {
   otherProp: number,
 };
 
+export type Endpoint<
+  T=unknown,
+  R=unknown,
+> = {
+  middleware?: string,
+  handler: boolean,
+};
+
 export const __dirname = 'blah';
 
 console.warn('Can use console');
