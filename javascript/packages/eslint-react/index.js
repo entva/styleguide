@@ -8,18 +8,7 @@ import globals from 'globals';
 export default [
   ...baseConfig,
   {
-    files: [
-      '**/*.test.jsx',
-      '**/*.spec.jsx',
-    ],
-    languageOptions: {
-      globals: {
-        ...globals.jest,
-      },
-    },
-  },
-  {
-    files: ['**/*.{js,mjs,cjs,jsx}'],
+    files: ['**/*.jsx'],
     plugins: {
       react,
       'jsx-a11y': jsxA11Y,
@@ -48,11 +37,11 @@ export default [
     settings: {
       'import/resolver': {
         node: {
-          extensions: ['.mjs', '.js', '.json', '.jsx'],
+          extensions: ['.js', '.mjs', '.cjs', '.jsx', '.json'],
         },
       },
 
-      'import/extensions': ['.mjs', '.js', '.json', '.jsx'],
+      'import/extensions': ['.js', '.mjs', '.cjs', '.jsx', '.json'],
       'import/core-modules': [],
       'import/ignore': ['node_modules', '\\.(coffee|scss|css|less|hbs|svg|json)$'],
 

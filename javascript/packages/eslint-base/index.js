@@ -17,9 +17,11 @@ export default [
       '**/*.test.js',
       '**/*.test.cjs',
       '**/*.test.mjs',
+      '**/*.test.jsx',
       '**/*.spec.js',
       '**/*.spec.cjs',
       '**/*.spec.mjs',
+      '**/*.spec.jsx',
       '**/__tests__/**',
     ],
     languageOptions: {
@@ -29,6 +31,7 @@ export default [
     },
   },
   {
+    files: ['**/*.{js,mjs,cjs,jsx}'],
     plugins: {
       import: importPlugin,
     },
@@ -53,11 +56,11 @@ export default [
     settings: {
       'import/resolver': {
         node: {
-          extensions: ['.mjs', '.js', '.json'],
+          extensions: ['.js', '.mjs', '.cjs', '.jsx', '.json'],
         },
       },
 
-      'import/extensions': ['.mjs', '.js', '.json'],
+      'import/extensions': ['.js', '.mjs', '.cjs', '.jsx', '.json'],
       'import/core-modules': [],
       'import/ignore': ['node_modules', '\\.(coffee|scss|css|less|hbs|svg|json)$'],
     },
