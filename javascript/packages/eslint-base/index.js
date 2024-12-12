@@ -182,7 +182,7 @@ export default [
           '**/protractor.conf.*.js',
           '**/karma.conf.js',
           '**/.eslintrc.js',
-          '**/.eslint.config.js',
+          '**/eslint.config.{js,cjs,mjs}',
         ],
 
         optionalDependencies: false,
