@@ -19,13 +19,7 @@ export default [
     },
   },
   {
-    files: ['**/*.{js,mjs,cjs,ts}'],
-    ignores: [
-      '**/.*',
-      '**/node_modules/',
-      '**/public/',
-      '**/coverage/',
-    ],
+    files: ['**/*.ts'],
     plugins: {
       import: importPlugin,
       '@typescript-eslint': typescriptEslint,

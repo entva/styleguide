@@ -11,15 +11,11 @@ import stylisticTs from '@stylistic/eslint-plugin-ts';
 
 // ESLint 9 is shit at merging config rules so we have to do it by hand.
 // Thanks ESLint <3
-const baseRules = [...baseConfig, ...tsConfig].reduce((acc, config) => {
-  if (config.rules) {
-    Object.keys(config.rules).forEach((rule) => {
-      acc[rule] = config.rules[rule];
-    });
-  }
-
-  return acc;
-}, {});
+const baseRules = [...baseConfig, ...tsConfig].reduce((acc, config) => (
+  Object.keys(config.rules).forEach((rule) => {
+    acc[rule] = config.rules[rule];
+  })
+), {});
 
 export default [
   ...baseConfig,
