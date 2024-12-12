@@ -10,7 +10,7 @@ constVar = 2;
 // expect: @stylistic/ts/quotes
 const doubleQuotes = "Hello";
 
-// expect: camelcase
+// expect: camelcase, @typescript-eslint/naming-convention
 const var_snake_case = 'ok';
 
 // expect: @stylistic/ts/quotes
@@ -49,6 +49,8 @@ const str = new String('string');
 // expect: no-new-wrappers
 const bool = new Boolean('string');
 
+// expect: @typescript-eslint/naming-convention
 class cls {}
+
 // expect: new-cap
 const instance = new cls();

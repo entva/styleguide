@@ -7,7 +7,6 @@ export type MyType = {
 
 export const __dirname = 'blah';
 
-
 console.warn('Can use console');
 
 for (let i = 0; i < 10; i += 1) {

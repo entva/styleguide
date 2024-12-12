@@ -19,7 +19,7 @@ if (func === 1) {
   function blockScope() {}
 }
 
-// expect: no-new-func
+// expect: no-new-func, @typescript-eslint/no-implied-eval
 const funcConstructor = new Function('a', 'b', 'return a + b');
 
 // expect: @stylistic/ts/space-before-blocks, @stylistic/ts/space-before-function-paren

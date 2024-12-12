@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars, max-len */
 
 export type MyType = {
   // expect: @stylistic/ts/member-delimiter-style
