@@ -9,26 +9,9 @@ export default [
       '**/node_modules/**',
       '**/public/**',
       '**/coverage/**',
-      '**/migrations/**',
+      '**/migrations/**', // Drizzle Migrations
+      '**/(payload)/**', // PayloadCSM Specific
     ],
-  },
-  {
-    files: [
-      '**/*.test.js',
-      '**/*.test.cjs',
-      '**/*.test.mjs',
-      '**/*.test.jsx',
-      '**/*.spec.js',
-      '**/*.spec.cjs',
-      '**/*.spec.mjs',
-      '**/*.spec.jsx',
-      '**/__tests__/**',
-    ],
-    languageOptions: {
-      globals: {
-        ...globals.jest,
-      },
-    },
   },
   {
     files: ['**/*.{js,mjs,cjs,jsx}'],
@@ -185,20 +168,15 @@ export default [
           'test.*',
           'test-*.*',
           '**/*{.,_}{test,spec}.*',
-          '**/jest.config.*',
-          '**/jest.setup.*',
-          '**/vue.config.*',
-          '**/webpack.config.*',
-          '**/rollup.config.*',
-          '**/protractor.conf.*',
-          '**/karma.conf.*',
-          '**/eslint.config.*',
+          '**/*.config.*',
+          '**/*.setup.*',
+          '**/*.conf.*',
         ],
 
         optionalDependencies: false,
       }],
 
-      'import/no-mutable-exports': ['error'],
+      'import/no-mutable-exports': ['off'], // Debatable
       'import/no-commonjs': ['off'],
       'import/no-amd': ['error'],
       'import/no-nodejs-modules': ['off'],
@@ -815,7 +793,7 @@ export default [
       }],
 
       'no-async-promise-executor': ['error'],
-      'no-await-in-loop': ['error'],
+      'no-await-in-loop': ['off'], // Too often useful in BE environment for sequential async calls
       'no-compare-neg-zero': ['error'],
       'no-cond-assign': ['error', 'always'],
       'no-constant-condition': ['warn'],
@@ -1090,6 +1068,28 @@ export default [
       }],
 
       yoda: ['error'],
+    },
+  },
+  {
+    files: [
+      '**/*.test.js',
+      '**/*.test.cjs',
+      '**/*.test.mjs',
+      '**/*.test.jsx',
+      '**/*.spec.js',
+      '**/*.spec.cjs',
+      '**/*.spec.mjs',
+      '**/*.spec.jsx',
+      '**/__tests__/**',
+    ],
+    languageOptions: {
+      globals: {
+        ...globals.jest,
+      },
+    },
+    rules: {
+      'import/first': ['off'],
+      'no-unused-vars': ['off'],
     },
   },
 ];

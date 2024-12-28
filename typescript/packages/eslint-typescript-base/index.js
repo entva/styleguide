@@ -17,19 +17,6 @@ const getOverrides = (rules, overridePrefix) => rules.reduce((acc, rule) => {
 export default [
   ...baseConfig,
   {
-    files: [
-      '**/*.test.ts',
-      '**/*.test.tsx',
-      '**/*.spec.ts',
-      '**/*.spec.tsx',
-    ],
-    languageOptions: {
-      globals: {
-        ...globals.jest,
-      },
-    },
-  },
-  {
     files: ['**/*.{ts,tsx}'],
     plugins: {
       import: importPlugin,
@@ -94,7 +81,6 @@ export default [
           'default-param-last',
           'dot-notation',
           'naming-convention',
-          'no-unused-vars',
           'no-shadow',
         ],
         '@typescript-eslint',
@@ -115,6 +101,16 @@ export default [
         ],
         '@stylistic/ts',
       ),
+
+      // Glitchy because of the test rules
+      'import/first': ['error'],
+      'no-unused-vars': ['off'],
+      '@typescript-eslint/no-unused-vars': ['error', {
+        vars: 'all',
+        args: 'after-used',
+        ignoreRestSiblings: true,
+        caughtErrors: 'none',
+      }],
 
       '@typescript-eslint/no-implied-eval': ['error'],
       '@typescript-eslint/no-loss-of-precision': ['error'],
@@ -190,6 +186,33 @@ export default [
         generics: 'always-multiline',
         tuples: 'always-multiline',
       }],
+    },
+  },
+  {
+    files: [
+      '**/*.test.js',
+      '**/*.test.cjs',
+      '**/*.test.mjs',
+      '**/*.test.jsx',
+      '**/*.spec.js',
+      '**/*.spec.cjs',
+      '**/*.spec.mjs',
+      '**/*.spec.jsx',
+      '**/*.test.ts',
+      '**/*.test.tsx',
+      '**/*.spec.ts',
+      '**/*.spec.tsx',
+      '**/__tests__/**',
+    ],
+    languageOptions: {
+      globals: {
+        ...globals.jest,
+      },
+    },
+    rules: {
+      'import/first': ['off'],
+      'no-unused-vars': ['off'],
+      '@typescript-eslint/no-unused-vars': ['off'],
     },
   },
 ];

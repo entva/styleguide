@@ -7,4 +7,4 @@ const alwaysReturn = [].filter((item) => {
   return false;
 });
 
-const arrayWithNumbers = [1, 2];
+export const arrayWithNumbers = [1, 2];

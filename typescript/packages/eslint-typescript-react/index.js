@@ -77,6 +77,14 @@ export default [
 
     rules: {
       ...baseRules,
+      'import/first': ['error'],
+      'no-unused-vars': ['off'],
+      '@typescript-eslint/no-unused-vars': ['error', {
+        vars: 'all',
+        args: 'after-used',
+        ignoreRestSiblings: true,
+        caughtErrors: 'none',
+      }],
       'react/jsx-filename-extension': ['error', {
         extensions: ['.jsx', '.tsx'],
       }],
