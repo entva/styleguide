@@ -90,4 +90,23 @@ export default [
       }],
     },
   },
+  {
+    files: [
+      '**/*.test.ts',
+      '**/*.test.tsx',
+      '**/*.spec.ts',
+      '**/*.spec.tsx',
+      '**/__tests__/**',
+    ],
+    languageOptions: {
+      globals: {
+        ...globals.jest,
+      },
+    },
+    rules: {
+      'import/first': ['off'],
+      'no-unused-vars': ['off'],
+      '@typescript-eslint/no-unused-vars': ['off'],
+    },
+  },
 ];

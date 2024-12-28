@@ -9,7 +9,7 @@
     "url": "https://github.com/entva/styleguide"
   },
   "bugs": "https://github.com/entva/styleguide/issues",
-  "version": "2.15.0",
+  "version": "2.16.0",
   "keywords": [
     "linter",
     "config",
@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@eslint/eslintrc": "^3.2.0",
-    "eslint-config-entva-typescript": "^2.15.0"
+    "eslint-config-entva-typescript": "^2.16.0"
   },
   "peerDependencies": {
     "eslint": "^9.x.x",
