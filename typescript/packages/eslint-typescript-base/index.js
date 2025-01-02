@@ -192,6 +192,7 @@ export const testRule = {
     },
   },
   rules: {
+    ...baseTestRule.rules,
     ...getOverrides(
       baseTestRule.rules,
       [
