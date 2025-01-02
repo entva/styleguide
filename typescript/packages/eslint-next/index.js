@@ -3,9 +3,11 @@ import { FlatCompat } from '@eslint/eslintrc';
 
 const compat = new FlatCompat({ baseDirectory: import.meta.dirname });
 
+const [ignoreRule, ...restRules] = baseConf;
+
 export default [
+  ignoreRule,
   ...compat.config({ extends: ['next/core-web-vitals', 'next/typescript'] }),
-  ...baseConf,
   {
     files: ['**/*.{js,mjs,cjs,jsx,ts,tsx}'],
     rules: {
@@ -14,4 +16,5 @@ export default [
       '@typescript-eslint/no-unnecessary-type-constraint': [0],
     },
   },
+  ...restRules,
 ];
