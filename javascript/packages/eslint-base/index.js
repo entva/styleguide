@@ -411,7 +411,7 @@ export default [
       'no-shadow': ['error'],
       'no-shadow-restricted-names': ['error'],
       'no-undef': ['error'],
-      'no-undef-init': ['error'],
+      'no-undef-init': ['off'], // Causes issues with TS, need to initialize vars as undefined
       'no-undefined': ['off'],
 
       'no-unused-vars': ['error', {
