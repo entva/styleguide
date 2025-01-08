@@ -4,7 +4,7 @@
 }
 
 // expect: selector-class-pattern
-.bad_naming {
+._bad_naming {
   content: "selector naming";
 }
 

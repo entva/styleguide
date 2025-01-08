@@ -27,7 +27,7 @@ export default {
     'no-descending-specificity': null,
 
     'selector-max-id': 0,
-    'selector-class-pattern': '^[a-zA-Z]+(-[\\w-]+)?$',
+    'selector-class-pattern': '^[a-zA-Z0-9]+((-|_)+[a-zA-Z0-9]+)*$',
 
     'scss/at-rule-no-unknown': true,
     'scss/at-function-parentheses-space-before': 'never',
@@ -35,7 +35,8 @@ export default {
     'scss/at-function-pattern': '^[a-z0-9_\\-]+$',
     'scss/at-mixin-argumentless-call-parentheses': 'never',
     'scss/at-mixin-pattern': '^[a-z0-9_\\-]+$',
-    'scss/comment-no-loud': true,
+    'scss/comment-no-loud': null,
+    'scss/no-global-function-names': null,
     'scss/declaration-nested-properties': 'never',
     'scss/dollar-variable-pattern': '^[a-z0-9_\\-]+$',
     'scss/percent-placeholder-pattern': '^we-are-not-using-placeholders-at-this-time$',
