@@ -1,11 +1,13 @@
 import baseConf from 'eslint-config-entva-typescript';
 import { FlatCompat } from '@eslint/eslintrc';
+import typescriptEslint from '@typescript-eslint/eslint-plugin';
+import tsParser from '@typescript-eslint/parser';
 
 const compat = new FlatCompat({ baseDirectory: import.meta.dirname });
 
 const [ignoreRule, ...restRules] = baseConf;
 
-export default [
+const combinedRules = [
   ignoreRule,
   ...compat.config({ extends: ['next/core-web-vitals', 'next/typescript'] }),
   {
@@ -17,4 +19,12 @@ export default [
     },
   },
   ...restRules,
-];
+].map((mutable) => {
+  // Forces the same parser to be used, otherwise ESLint throws
+  if (mutable.plugins?.['@typescript-eslint']) mutable.plugins['@typescript-eslint'] = typescriptEslint;
+  if (mutable.languageOptions?.parser) mutable.languageOptions.parser = tsParser;
+
+  return mutable;
+});
+
+export default combinedRules;
