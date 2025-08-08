@@ -12,6 +12,7 @@
     "reinstall": "scripts/for-each-package npm run reinstall",
     "test": "scripts/for-each-package npm run test",
     "publish": "scripts/for-each-package npm publish --access public",
+    "fix": "scripts/for-each-package npm pkg fix",
     "set-version": "scripts/versions"
   }
 }
