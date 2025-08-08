@@ -9,7 +9,6 @@
   "type": "module",
   "files": [],
   "scripts": {
-    "ci": "scripts/for-each-package npm run ci",
     "reinstall": "scripts/for-each-package npm run reinstall",
     "test": "scripts/for-each-package npm run test",
     "publish": "scripts/for-each-package npm publish --access public",
