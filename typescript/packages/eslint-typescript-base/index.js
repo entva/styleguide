@@ -3,7 +3,7 @@ import importPlugin from 'eslint-plugin-import';
 import globals from 'globals';
 import typescriptEslint from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
-import stylisticTs from '@stylistic/eslint-plugin-ts';
+import stylisticTs from '@stylistic/eslint-plugin';
 
 // Many TS rules mirror JS rules, we need to disable JS rule and apply config for the TS replacement
 const getOverrides = (base, rules, overridePrefix) => rules.reduce((acc, rule) => {
@@ -17,7 +17,7 @@ export const mainRule = {
   plugins: {
     import: importPlugin,
     '@typescript-eslint': typescriptEslint,
-    '@stylistic/ts': stylisticTs,
+    '@stylistic': stylisticTs,
   },
 
   languageOptions: {
@@ -98,7 +98,7 @@ export const mainRule = {
         'object-curly-spacing',
         'quotes',
       ],
-      '@stylistic/ts',
+      '@stylistic',
     ),
 
     '@typescript-eslint/no-implied-eval': ['error'],
@@ -154,7 +154,7 @@ export const mainRule = {
       enforceForArrowConditionals: false,
     }],
 
-    '@stylistic/ts/member-delimiter-style': ['error', {
+    '@stylistic/member-delimiter-style': ['error', {
       multiline: {
         delimiter: 'comma',
       },
@@ -163,9 +163,9 @@ export const mainRule = {
         delimiter: 'comma',
       },
     }],
-    '@stylistic/ts/func-call-spacing': ['error', 'never'],
-    '@stylistic/ts/no-extra-semi': ['error'],
-    '@stylistic/ts/comma-dangle': ['error', {
+    '@stylistic/function-call-spacing': ['error', 'never'],
+    '@stylistic/no-extra-semi': ['error'],
+    '@stylistic/comma-dangle': ['error', {
       arrays: 'always-multiline',
       objects: 'always-multiline',
       imports: 'always-multiline',
@@ -175,6 +175,8 @@ export const mainRule = {
       generics: 'always-multiline',
       tuples: 'always-multiline',
     }],
+
+    '@typescript-eslint/no-deprecated': 'error',
   },
 };
 

@@ -22,7 +22,7 @@ if (func === 1) {
 // expect: no-new-func, @typescript-eslint/no-implied-eval
 const funcConstructor = new Function('a', 'b', 'return a + b');
 
-// expect: @stylistic/ts/space-before-blocks, @stylistic/ts/space-before-function-paren
+// expect: @stylistic/space-before-blocks, @stylistic/space-before-function-paren
 const spacedFunc = function (){};
 
 const argsArray = [1, 2, 3];

@@ -8,7 +8,6 @@ import importPlugin from 'eslint-plugin-import';
 import globals from 'globals';
 import typescriptEslint from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
-import stylisticTs from '@stylistic/eslint-plugin-ts';
 
 export const mainRule = {
   files: ['**/*.{ts,tsx}'],
@@ -18,7 +17,6 @@ export const mainRule = {
     'react-hooks': reactHooks,
     import: importPlugin,
     '@typescript-eslint': typescriptEslint,
-    '@stylistic/ts': stylisticTs,
   },
 
   languageOptions: {

@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars, max-len */
 
 export type MyType = {
-  // expect: @stylistic/ts/member-delimiter-style
+  // expect: @stylistic/member-delimiter-style
   prop: string;
-  // expect: @stylistic/ts/type-annotation-spacing
+  // expect: @stylistic/type-annotation-spacing
   other:boolean,
 };
 
@@ -15,6 +15,16 @@ type Anything = any;
 
 // expect: prefer-promise-reject-errors
 Promise.reject('Reject with string');
+
+/**
+ * @deprecated Use `newFunction` instead.
+ */
+const oldFunction = () => {
+  console.warn('Warning: oldFunction is deprecated. Use newFunction instead.');
+};
+
+// expect: @typescript-eslint/no-deprecated
+oldFunction();
 
 // expect: eqeqeq
 const condition = 1 == true;
@@ -55,7 +65,7 @@ else
 
 if (check > true) {
   console.warn('Do smth');
-// expect: @stylistic/ts/brace-style
+// expect: @stylistic/brace-style
 }
 else {
   console.warn('Do smth else');
@@ -65,25 +75,25 @@ else {
 //Comment without space
 
 const indent = () => {
-// expect: @stylistic/ts/indent
+// expect: @stylistic/indent
  console.warn('1 space');
-  // expect: @stylistic/ts/indent
+  // expect: @stylistic/indent
     console.warn('1 space');
 };
 
-// expect: @stylistic/ts/space-before-blocks, @stylistic/ts/keyword-spacing, padded-blocks, space-in-parens
+// expect: @stylistic/space-before-blocks, @stylistic/keyword-spacing, padded-blocks, space-in-parens
 if( condition > true){
 
   console.warn('Do smth else');
 }
 
-// expect: @stylistic/ts/space-infix-ops
+// expect: @stylistic/space-infix-ops
 const sum=5+5;
 
 // expect: max-len
 const longCode = condition > 5 && condition === true && condition < 3 && condition > 5 && condition > 5 && condition > 5 && condition > 5 && condition > 5;
 
-// expect: @stylistic/ts/comma-spacing
+// expect: @stylistic/comma-spacing
 const spacedComma = [1 , 2];
 
 const computedPropObj = {};
@@ -108,6 +118,6 @@ const commaStyle = [
   , 2
   // expect: comma-style
   , 2,
-  // expect: @stylistic/ts/comma-dangle
+  // expect: @stylistic/comma-dangle
   3
 ];
