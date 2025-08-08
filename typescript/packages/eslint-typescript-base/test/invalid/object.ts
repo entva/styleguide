@@ -25,5 +25,5 @@ const objectProps = { a: 1 };
 // expect: @typescript-eslint/dot-notation
 const props = objectProps['a'];
 
-// expect: no-multi-spaces, @stylistic/ts/object-curly-spacing
+// expect: no-multi-spaces, @stylistic/object-curly-spacing
 const spacedObject = {  a: 1};

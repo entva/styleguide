@@ -6,10 +6,10 @@
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
-    "url": "https://github.com/entva/styleguide"
+    "url": "git+https://github.com/entva/styleguide.git"
   },
   "bugs": "https://github.com/entva/styleguide/issues",
-  "version": "1.0.0",
+  "version": "2.30.0",
   "keywords": [
     "linter",
     "config",
@@ -30,9 +30,9 @@
     "test": "echo \"Not supported by Biome\" && exit 0"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.4"
+    "@biomejs/biome": "^2.1.4"
   },
   "peerDependencies": {
-    "@biomejs/biome": "^1.x.x"
+    "@biomejs/biome": "^2.x.x"
   }
 }

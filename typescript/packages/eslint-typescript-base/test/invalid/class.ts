@@ -4,10 +4,10 @@ class Person {
   // expect: @typescript-eslint/no-useless-constructor, @typescript-eslint/no-empty-function
   constructor() {}
 
-  // expect: @stylistic/ts/space-before-function-paren
+  // expect: @stylistic/space-before-function-paren
   hello () {
   }
-  // expect: @stylistic/ts/lines-between-class-members
+  // expect: @stylistic/lines-between-class-members
   walk() {}
 
   // expect: @typescript-eslint/no-dupe-class-members

@@ -7,13 +7,13 @@ const constVar = 1;
 // expect: no-const-assign
 constVar = 2;
 
-// expect: @stylistic/ts/quotes
+// expect: @stylistic/quotes
 const doubleQuotes = "Hello";
 
 // expect: camelcase, @typescript-eslint/naming-convention
 const var_snake_case = 'ok';
 
-// expect: @stylistic/ts/quotes
+// expect: @stylistic/quotes
 const templateString = `Capt. Janeway`;
 
 // expect: template-curly-spacing

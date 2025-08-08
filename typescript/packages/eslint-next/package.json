@@ -6,10 +6,10 @@
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
-    "url": "https://github.com/entva/styleguide"
+    "url": "git+https://github.com/entva/styleguide.git"
   },
   "bugs": "https://github.com/entva/styleguide/issues",
-  "version": "2.20.0",
+  "version": "2.30.0",
   "keywords": [
     "linter",
     "config",
@@ -21,24 +21,24 @@
   "scripts": {
     "reinstall": "rm -rf node_modules package-lock.json && npm install",
     "test": "node ../../../test ./test js tsx",
-    "rules": "node_modules/.bin/eslint --print-config file.tsx > eslint-ruleset-output.json",
+    "rules": "eslint --print-config file.tsx > eslint-ruleset-output.json",
     "prepublishOnly": "npm test"
   },
   "devDependencies": {
-    "@types/node": "^22.13.9",
+    "@types/node": "^24.2.0",
     "@types/react": "^19.0.10",
-    "@types/react-dom": "^19.0.4",
-    "eslint": "^9.21.0",
+    "@types/react-dom": "^19.1.7",
+    "eslint": "^9.32.0",
     "next": "^15.x.x",
     "react": "^19.x.x",
-    "typescript": "^5.8.2"
+    "typescript": "^5.9.2"
   },
   "dependencies": {
-    "@eslint/eslintrc": "^3.3.0",
-    "@typescript-eslint/eslint-plugin": "^8.19.0",
-    "@typescript-eslint/parser": "^8.19.0",
-    "eslint-config-entva-typescript": "^2.19.0",
-    "eslint-config-next": "^15.2.0"
+    "@eslint/eslintrc": "^3.3.1",
+    "@typescript-eslint/eslint-plugin": "^8.39.0",
+    "@typescript-eslint/parser": "^8.39.0",
+    "eslint-config-entva-typescript": "^2.x.x",
+    "eslint-config-next": "^15.4.6"
   },
   "peerDependencies": {
     "eslint": "^9.x.x",
