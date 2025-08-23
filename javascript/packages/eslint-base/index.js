@@ -10,6 +10,7 @@ export const ignoreRule = {
     '**/coverage/**',
     '**/migrations/**', // Drizzle Migrations
     '**/(payload)/**', // PayloadCSM Specific
+    '**/next-env.d.ts', // NextJS
   ],
 };
 
