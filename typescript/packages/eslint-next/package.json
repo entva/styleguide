@@ -9,7 +9,7 @@
     "url": "git+https://github.com/entva/styleguide.git"
   },
   "bugs": "https://github.com/entva/styleguide/issues",
-  "version": "2.31.0",
+  "version": "2.32.0",
   "keywords": [
     "linter",
     "config",
@@ -25,23 +25,23 @@
     "prepublishOnly": "npm test"
   },
   "devDependencies": {
-    "@types/node": "^24.2.0",
-    "@types/react": "^19.0.10",
-    "@types/react-dom": "^19.1.7",
-    "eslint": "^9.32.0",
-    "next": "^15.x.x",
+    "@types/node": "^24.9.2",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "eslint": "^9.38.0",
+    "next": "^16.x.x",
     "react": "^19.x.x",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.3"
   },
   "dependencies": {
     "@eslint/eslintrc": "^3.3.1",
-    "@typescript-eslint/eslint-plugin": "^8.39.0",
-    "@typescript-eslint/parser": "^8.39.0",
+    "@typescript-eslint/eslint-plugin": "^8.46.2",
+    "@typescript-eslint/parser": "^8.46.2",
     "eslint-config-entva-typescript": "^2.x.x",
-    "eslint-config-next": "^15.4.6"
+    "eslint-config-next": "^15.5.6"
   },
   "peerDependencies": {
     "eslint": "^9.x.x",
-    "next": "^14.x.x || ^15.x.x"
+    "next": "^15.x.x || ^16.x.x"
   }
 }
