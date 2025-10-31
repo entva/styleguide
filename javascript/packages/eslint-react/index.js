@@ -104,7 +104,9 @@ export const mainRule = {
 
     'react/no-unused-class-component-methods': ['off'],
     'react-hooks/exhaustive-deps': 'off',
-    'react-hooks/set-state-in-effects': 'off',
+    'react-hooks/set-state-in-effect': 'off',
+    'react-hooks/preserve-manual-memoization': 'off',
+    'react-hooks/refs': 'off',
 
     'react/display-name': 'off',
 
