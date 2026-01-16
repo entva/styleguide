@@ -6,7 +6,7 @@ import { collectLinterErrors, createTestErrorsCollector } from './utils.js';
 const loadStyleLint = async () => {
   const cwd = process.cwd();
   const pkg = JSON.parse(fs.readFileSync(resolve(cwd, 'node_modules/stylelint/package.json'), 'utf8'));
-  const styleLint = resolve(cwd, 'node_modules/stylelint', pkg.main);
+  const styleLint = resolve(cwd, 'node_modules/stylelint', pkg.exports['.'].default);
   const mod = await import(styleLint);
   return mod.default;
 };

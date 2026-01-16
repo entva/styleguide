@@ -6,7 +6,7 @@ if [ -z "$1" ]; then
 fi
 
 NEW_VERSION=$1
-PACKAGES=`find . -iname packages -not -path "*/node_modules/*" -exec find {} -maxdepth 1 -mindepth 1 \;`
+PACKAGES="$(find . -iname packages -not -path "*/node_modules/*" -exec find {} -maxdepth 1 -mindepth 1 \;) ."
 EXIT_STATUS=0
 
 for PACKAGE in $PACKAGES
@@ -14,15 +14,12 @@ do
   PACKAGE_JSON="$PACKAGE/package.json"
   if [ -f "$PACKAGE_JSON" ]; then
     echo "Updating version in $PACKAGE_JSON to $NEW_VERSION"
-    # Use jq to update the version field safely
     if jq --arg ver "$NEW_VERSION" '.version = $ver' "$PACKAGE_JSON" > tmp.json; then
       mv tmp.json "$PACKAGE_JSON"
     else
       echo "Failed to update $PACKAGE_JSON"
       EXIT_STATUS=1
     fi
-  else
-    echo "No package.json found in $PACKAGE"
   fi
 done
 
