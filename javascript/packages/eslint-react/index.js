@@ -1,9 +1,13 @@
 import { ignoreRule, mainRule as baseMainRule, testRule } from 'eslint-config-entva-base';
-import react from 'eslint-plugin-react';
+import { fixupPluginRules } from '@eslint/compat';
+import reactOriginal from 'eslint-plugin-react';
 import jsxA11Y from 'eslint-plugin-jsx-a11y';
 import reactHooks from 'eslint-plugin-react-hooks';
 import importPlugin from 'eslint-plugin-import';
 import globals from 'globals';
+
+// Export fixed-up plugin for reuse by downstream packages
+export const react = fixupPluginRules(reactOriginal);
 
 export const mainRule = {
   files: ['**/*.{js,mjs,cjs,jsx}'],

@@ -29,6 +29,7 @@
     "react": "^19.x.x"
   },
   "dependencies": {
+    "@eslint/compat": "^2.0.2",
     "eslint-config-entva-base": "^2.x.x",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
