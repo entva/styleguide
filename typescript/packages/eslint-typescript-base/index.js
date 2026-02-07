@@ -196,6 +196,9 @@ export const mainRule = {
 
     // Prefer Record<string, T> over { [key: string]: T }
     '@typescript-eslint/consistent-indexed-object-style': ['error', 'record'],
+
+    // Prefer type over interface
+    '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
   },
 };
 

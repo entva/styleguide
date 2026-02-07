@@ -2,7 +2,7 @@
 
 // Test @typescript-eslint/consistent-type-imports
 // Types imported via separate `import type` statements (correct)
-import type { SomeInterface } from './type-definitions';
+import type { SomeType } from './type-definitions';
 
 // Test @typescript-eslint/array-type
 // Using string[] syntax for simple types (correct)
@@ -18,8 +18,13 @@ type ComplexArray = Array<{ id: string, name: string }>;
 type StringMap = Record<string, string>;
 type NumberMap = Record<string, number>;
 
-// Extending is allowed with index signatures
-interface ExtendableInterface {
-  knownProp: string,
-  [key: string]: string,
-}
+// Test @typescript-eslint/consistent-type-definitions
+// Using type instead of interface (correct)
+type GoodType = {
+  prop: string,
+};
+
+type AnotherGoodType = {
+  id: number,
+  name: string,
+};

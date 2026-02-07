@@ -34,3 +34,17 @@ type StringMap = { [key: string]: string };
 
 // expect: @typescript-eslint/consistent-indexed-object-style
 type NumberMap = { [k: string]: number };
+
+// Test @typescript-eslint/consistent-type-definitions
+// Should use type instead of interface
+
+// expect: @typescript-eslint/consistent-type-definitions
+interface BadInterface {
+  prop: string,
+}
+
+// expect: @typescript-eslint/consistent-type-definitions
+interface AnotherBadInterface {
+  id: number,
+  name: string,
+}

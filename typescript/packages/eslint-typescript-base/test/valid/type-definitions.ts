@@ -1,8 +1,8 @@
-export interface SomeInterface {
+export type SomeType = {
   name: string,
-}
+};
 
-export type AnotherInterface = {
+export type AnotherType = {
   id: number,
 };
 
