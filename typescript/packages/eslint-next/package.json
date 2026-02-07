@@ -25,23 +25,23 @@
     "prepublishOnly": "npm test"
   },
   "devDependencies": {
-    "@types/node": "^25.0.9",
-    "@types/react": "^19.2.8",
+    "@types/node": "^25.2.1",
+    "@types/react": "^19.2.13",
     "@types/react-dom": "^19.2.3",
-    "eslint": "^9.39.2",
-    "next": "^15.5.9",
-    "react": "^19.2.3",
+    "eslint": "^10.0.0",
+    "next": "^16.1.6",
+    "react": "^19.2.4",
     "typescript": "^5.9.3"
   },
   "dependencies": {
     "@eslint/eslintrc": "^3.3.3",
-    "@typescript-eslint/eslint-plugin": "^8.53.0",
-    "@typescript-eslint/parser": "^8.53.0",
+    "@typescript-eslint/eslint-plugin": "^8.54.0",
+    "@typescript-eslint/parser": "^8.54.0",
     "eslint-config-entva-typescript": "^2.x.x",
-    "eslint-config-next": "^15.5.9"
+    "eslint-config-next": "^16.1.6"
   },
   "peerDependencies": {
-    "eslint": "^9.x.x",
+    "eslint": "^9.x.x || ^10.x.x",
     "next": "^15.x.x || ^16.x.x"
   }
 }
