@@ -181,6 +181,21 @@ export const mainRule = {
     }],
 
     '@typescript-eslint/no-deprecated': 'error',
+
+    // Require types to be imported via separate `import type` statements
+    '@typescript-eslint/consistent-type-imports': ['error', {
+      prefer: 'type-imports',
+      disallowTypeAnnotations: true,
+      fixStyle: 'separate-type-imports',
+    }],
+
+    // Prefer string[] over Array<string> for simple types
+    '@typescript-eslint/array-type': ['error', {
+      default: 'array-simple',
+    }],
+
+    // Prefer Record<string, T> over { [key: string]: T }
+    '@typescript-eslint/consistent-indexed-object-style': ['error', 'record'],
   },
 };
 
