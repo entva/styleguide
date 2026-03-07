@@ -97,6 +97,7 @@ export const mainRule = {
         'comma-dangle',
         'object-curly-spacing',
         'quotes',
+        'semi',
       ],
       '@stylistic',
     ),
@@ -177,6 +178,20 @@ export const mainRule = {
     }],
 
     '@typescript-eslint/no-deprecated': 'error',
+
+    '@typescript-eslint/consistent-type-imports': ['error', {
+      prefer: 'type-imports',
+      disallowTypeAnnotations: true,
+      fixStyle: 'separate-type-imports',
+    }],
+
+    '@typescript-eslint/array-type': ['error', {
+      default: 'array-simple',
+    }],
+
+    '@typescript-eslint/consistent-indexed-object-style': ['error', 'record'],
+
+    '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
   },
 };
 

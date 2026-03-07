@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
+import type { MyType } from './type-source';
+
 import 'eslint';
-import pkg from '../../package';
+import globals from 'globals';
 
-console.warn('Used dep', pkg);
+console.warn('Used dep', globals);
 
-const requireInFunc = () => require('path');
-
-const dynamicRequire = () => require(`${'path'}`);
+const typed: MyType = { value: 'test' };
 
 export const notDefault = 1;

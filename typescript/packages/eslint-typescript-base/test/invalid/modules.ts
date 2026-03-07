@@ -1,5 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
+// expect: @typescript-eslint/consistent-type-imports
+import { MyType } from './type-source';
+
 // expect: import/no-extraneous-dependencies
 import 'chalk';
 
@@ -14,6 +17,8 @@ import { some } from '../../index';
 import './unexisted_module';
 
 const variable = 2;
+
+const typed: MyType = { value: 'test' };
 
 // expect: import/no-mutable-exports
 let mutable = 1;
