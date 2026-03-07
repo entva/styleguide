@@ -121,3 +121,21 @@ const commaStyle = [
   // expect: @stylistic/comma-dangle
   3
 ];
+
+// expect: @typescript-eslint/consistent-type-definitions
+interface BadInterface {
+  prop: string,
+}
+
+type MissingSemi = {
+  prop: string,
+// expect: @stylistic/semi
+}
+
+// expect: @typescript-eslint/array-type
+const badArray: Array<string> = [];
+
+// expect: @typescript-eslint/consistent-indexed-object-style
+type BadIndex = {
+  [key: string]: number,
+};
