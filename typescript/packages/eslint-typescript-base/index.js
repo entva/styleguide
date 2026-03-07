@@ -1,9 +1,13 @@
 import { ignoreRule, mainRule as baseMainRule, testRule as baseTestRule } from 'eslint-config-entva-base';
+import { fixupPluginRules } from '@eslint/compat';
 import importPlugin from 'eslint-plugin-import';
 import globals from 'globals';
-import typescriptEslint from '@typescript-eslint/eslint-plugin';
+import typescriptEslintOriginal from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
 import stylisticTs from '@stylistic/eslint-plugin';
+
+// Export fixed-up plugin for reuse by downstream packages
+export const typescriptEslint = fixupPluginRules(typescriptEslintOriginal);
 
 // Many TS rules mirror JS rules, we need to disable JS rule and apply config for the TS replacement
 const getOverrides = (base, rules, overridePrefix) => rules.reduce((acc, rule) => {
@@ -177,6 +181,24 @@ export const mainRule = {
     }],
 
     '@typescript-eslint/no-deprecated': 'error',
+
+    // Require types to be imported via separate `import type` statements
+    '@typescript-eslint/consistent-type-imports': ['error', {
+      prefer: 'type-imports',
+      disallowTypeAnnotations: true,
+      fixStyle: 'separate-type-imports',
+    }],
+
+    // Prefer string[] over Array<string> for simple types
+    '@typescript-eslint/array-type': ['error', {
+      default: 'array-simple',
+    }],
+
+    // Prefer Record<string, T> over { [key: string]: T }
+    '@typescript-eslint/consistent-indexed-object-style': ['error', 'record'],
+
+    // Prefer type over interface
+    '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
   },
 };
 
