@@ -8,5 +8,8 @@ const noReturn = [].filter((item) => {
   if (item) return true;
 });
 
+// expect: @typescript-eslint/array-type
+const complexArray: Array<string | number> = [];
+
 // expect: array-bracket-spacing, no-multi-spaces
 const spacedArray = [  1, 2];

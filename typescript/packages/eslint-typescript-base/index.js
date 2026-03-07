@@ -186,7 +186,7 @@ export const mainRule = {
     }],
 
     '@typescript-eslint/array-type': ['error', {
-      default: 'array-simple',
+      default: 'array',
     }],
 
     '@typescript-eslint/consistent-indexed-object-style': ['error', 'record'],
