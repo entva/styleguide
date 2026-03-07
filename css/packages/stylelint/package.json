@@ -26,9 +26,9 @@
     "prepublishOnly": "npm test"
   },
   "devDependencies": {
-    "eslint": "^9.39.2",
+    "eslint": "^9.39.4",
     "eslint-config-entva-base": "^2.x.x",
-    "stylelint": "^17.0.0"
+    "stylelint": "^17.4.0"
   },
   "dependencies": {
     "stylelint-config-standard": "^40.0.0",
