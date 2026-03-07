@@ -25,15 +25,15 @@
     "prepublishOnly": "npm test"
   },
   "devDependencies": {
-    "eslint": "^9.39.2"
+    "eslint": "^9.39.4"
   },
   "dependencies": {
-    "@stylistic/eslint-plugin": "^5.7.0",
-    "@typescript-eslint/eslint-plugin": "^8.53.0",
-    "@typescript-eslint/parser": "^8.53.0",
+    "@stylistic/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/eslint-plugin": "^8.56.1",
+    "@typescript-eslint/parser": "^8.56.1",
     "eslint-config-entva-base": "^2.x.x",
     "eslint-plugin-import": "^2.32.0",
-    "globals": "^17.0.0"
+    "globals": "^17.4.0"
   },
   "peerDependencies": {
     "eslint": "^9.x.x"
