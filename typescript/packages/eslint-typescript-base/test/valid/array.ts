@@ -8,3 +8,6 @@ const alwaysReturn = [].filter((item) => {
 });
 
 export const arrayWithNumbers = [1, 2];
+
+const simpleArray: string[] = [];
+const complexArray: (string | number)[] = [];
