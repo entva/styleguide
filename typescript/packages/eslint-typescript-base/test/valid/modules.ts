@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import type { MyType } from './type-source';
-
 import 'eslint';
 import globals from 'globals';
+
+import type { MyType } from './type-source';
 
 console.warn('Used dep', globals);
 
