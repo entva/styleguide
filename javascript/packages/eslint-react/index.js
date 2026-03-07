@@ -517,12 +517,14 @@ export const mainRule = {
 
 const baseDevDeps = baseMainRule.rules['import/no-extraneous-dependencies'][1].devDependencies;
 
-export default [
-  ignoreRule,
-  baseMainRule,
+export const storybookRules = [
   ...storybook.configs['flat/recommended'],
-  mainRule,
-  testRule,
+  {
+    files: ['**/*.stories.*'],
+    rules: {
+      'react-hooks/rules-of-hooks': 'off',
+    },
+  },
   {
     rules: {
       'import/no-extraneous-dependencies': [
@@ -540,4 +542,12 @@ export default [
       ],
     },
   },
+];
+
+export default [
+  ignoreRule,
+  baseMainRule,
+  mainRule,
+  testRule,
+  ...storybookRules,
 ];

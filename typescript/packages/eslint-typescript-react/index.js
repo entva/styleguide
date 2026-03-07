@@ -1,5 +1,5 @@
 import { ignoreRule, mainRule as baseMainRule, testRule as baseTestRule } from 'eslint-config-entva-base';
-import { mainRule as reactMainRule } from 'eslint-config-entva';
+import { mainRule as reactMainRule, storybookRules } from 'eslint-config-entva';
 import { mainRule as tsMainRule, testRule as tsTestRule } from 'eslint-config-entva-typescript-base';
 import react from 'eslint-plugin-react';
 import jsxA11Y from 'eslint-plugin-jsx-a11y';
@@ -81,4 +81,5 @@ export default [
   mainRule,
   baseTestRule,
   tsTestRule,
+  ...storybookRules,
 ];
