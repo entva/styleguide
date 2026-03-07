@@ -139,3 +139,12 @@ const badArray: Array<string> = [];
 type BadIndex = {
   [key: string]: number,
 };
+
+// expect: @typescript-eslint/no-wrapper-object-types
+const wrapper: Object = {};
+
+// expect: @typescript-eslint/no-unsafe-function-type
+const unsafeFunc: Function = () => {};
+
+// expect: @typescript-eslint/no-empty-object-type
+type Empty = {};

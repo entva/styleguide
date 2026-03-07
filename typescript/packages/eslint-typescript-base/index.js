@@ -189,6 +189,10 @@ export const mainRule = {
       default: 'array',
     }],
 
+    '@typescript-eslint/no-wrapper-object-types': 'error',
+    '@typescript-eslint/no-unsafe-function-type': 'error',
+    '@typescript-eslint/no-empty-object-type': 'error',
+
     '@typescript-eslint/consistent-indexed-object-style': ['error', 'record'],
 
     '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
