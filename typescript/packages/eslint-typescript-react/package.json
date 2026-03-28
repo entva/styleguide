@@ -30,7 +30,7 @@
     "@types/react-dom": "^19.2.3",
     "eslint": "^9.39.4",
     "react": "^19.x.x",
-    "typescript": "^6.0.2"
+    "typescript": "^5.9.3"
   },
   "dependencies": {
     "@stylistic/eslint-plugin": "^5.10.0",
