@@ -526,6 +526,9 @@ export const storybookRules = [
     },
   },
   {
+    plugins: {
+      import: importPlugin,
+    },
     rules: {
       'import/no-extraneous-dependencies': [
         'error',
