@@ -9,7 +9,7 @@
     "url": "git+https://github.com/entva/styleguide.git"
   },
   "bugs": "https://github.com/entva/styleguide/issues",
-  "version": "2.44.0",
+  "version": "2.45.0",
   "keywords": [
     "linter",
     "config",
@@ -26,16 +26,16 @@
   },
   "devDependencies": {
     "eslint": "^9.39.4",
-    "react": "^19.2.4"
+    "react": "^19.2.5"
   },
   "dependencies": {
     "eslint-config-entva-base": "^2.x.x",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^7.0.1",
-    "eslint-plugin-storybook": "^10.3.3",
-    "globals": "^17.4.0"
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-storybook": "^10.3.5",
+    "globals": "^17.5.0"
   },
   "peerDependencies": {
     "eslint": "^9.x.x"
