@@ -1,15 +1,14 @@
-import baseConf from 'eslint-config-entva-typescript';
-import { FlatCompat } from '@eslint/eslintrc';
-import typescriptEslint from '@typescript-eslint/eslint-plugin';
-import tsParser from '@typescript-eslint/parser';
-
-const compat = new FlatCompat({ baseDirectory: import.meta.dirname });
+import baseConf, { mainRule as baseMainRule } from 'eslint-config-entva-typescript';
+import nextCoreWebVitals from 'eslint-config-next/core-web-vitals';
+import nextTypescript from 'eslint-config-next/typescript';
 
 const [ignoreRule, ...restRules] = baseConf;
+const { plugins: basePlugins, languageOptions: { parser: tsParser } } = baseMainRule;
 
 const combinedRules = [
   ignoreRule,
-  ...compat.config({ extends: ['next/core-web-vitals', 'next/typescript'] }),
+  ...nextCoreWebVitals,
+  ...nextTypescript,
   {
     files: ['**/*.{js,mjs,cjs,jsx,ts,tsx}'],
     rules: {
@@ -20,8 +19,13 @@ const combinedRules = [
   },
   ...restRules,
 ].map((mutable) => {
-  // Forces the same parser to be used, otherwise ESLint throws
-  if (mutable.plugins?.['@typescript-eslint']) mutable.plugins['@typescript-eslint'] = typescriptEslint;
+  // Forces the same plugin/parser instances from baseConf across all configs,
+  // otherwise ESLint throws on redefinition
+  if (mutable.plugins) {
+    Object.keys(mutable.plugins).forEach((name) => {
+      if (basePlugins[name]) mutable.plugins[name] = basePlugins[name];
+    });
+  }
   if (mutable.languageOptions?.parser) mutable.languageOptions.parser = tsParser;
 
   return mutable;
