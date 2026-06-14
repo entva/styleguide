@@ -3,7 +3,6 @@ import react from 'eslint-plugin-react';
 import jsxA11Y from 'eslint-plugin-jsx-a11y';
 import reactHooks from 'eslint-plugin-react-hooks';
 import importPlugin from 'eslint-plugin-import';
-import storybook from 'eslint-plugin-storybook';
 import globals from 'globals';
 
 export const mainRule = {
@@ -515,42 +514,9 @@ export const mainRule = {
   },
 };
 
-const baseDevDeps = baseMainRule.rules['import/no-extraneous-dependencies'][1].devDependencies;
-
-export const storybookRules = [
-  ...storybook.configs['flat/recommended'],
-  {
-    files: ['**/*.stories.*'],
-    rules: {
-      'react-hooks/rules-of-hooks': 'off',
-    },
-  },
-  {
-    plugins: {
-      import: importPlugin,
-    },
-    rules: {
-      'import/no-extraneous-dependencies': [
-        'error',
-        {
-          devDependencies: [
-            ...baseDevDeps,
-            '**/eslint.*',
-            '**/vitest.*',
-            '**/*.stories.*',
-            '**/.storybook/**',
-          ],
-          optionalDependencies: false,
-        },
-      ],
-    },
-  },
-];
-
 export default [
   ignoreRule,
   baseMainRule,
   mainRule,
   testRule,
-  ...storybookRules,
 ];
