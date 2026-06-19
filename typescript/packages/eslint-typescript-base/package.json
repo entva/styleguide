@@ -30,8 +30,8 @@
   },
   "dependencies": {
     "@stylistic/eslint-plugin": "^5.10.0",
-    "@typescript-eslint/eslint-plugin": "^8.61.0",
-    "@typescript-eslint/parser": "^8.61.0",
+    "@typescript-eslint/eslint-plugin": "^8.61.1",
+    "@typescript-eslint/parser": "^8.61.1",
     "eslint-config-entva-base": "^2.x.x",
     "eslint-plugin-import": "^2.32.0",
     "globals": "^17.6.0"

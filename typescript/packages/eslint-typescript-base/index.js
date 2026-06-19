@@ -80,6 +80,7 @@ export const mainRule = {
         'naming-convention',
         'no-shadow',
         'no-unused-vars',
+        'no-redeclare',
       ],
       '@typescript-eslint',
     ),
@@ -112,7 +113,6 @@ export const mainRule = {
       detectObjects: false,
     }],
 
-    '@typescript-eslint/no-redeclare': ['error'],
     '@typescript-eslint/no-unused-expressions': ['error', {
       allowShortCircuit: false,
       allowTernary: false,

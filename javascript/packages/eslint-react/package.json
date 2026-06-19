@@ -18,6 +18,10 @@
   ],
   "type": "module",
   "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./storybook": "./storybook.js"
+  },
   "scripts": {
     "reinstall": "rm -rf node_modules package-lock.json && npm install",
     "test": "node ../../../test ./test js jsx",
