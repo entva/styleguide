@@ -1,0 +1,18 @@
+{
+  "name": "@entva/styleguide",
+  "author": "Max Degterev <max@degterev.me>",
+  "version": "2.48.0",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "repository": "entva/styleguide",
+  "bugs": "https://github.com/entva/styleguide",
+  "type": "module",
+  "files": [],
+  "scripts": {
+    "reinstall": "scripts/for-each-package npm run reinstall",
+    "test": "scripts/for-each-package npm run test",
+    "publish": "scripts/for-each-package npm publish --access public",
+    "fix": "scripts/for-each-package npm pkg fix",
+    "set-version": "scripts/versions"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "name": "@entva/oxfmt-config",
+  "description": "Shareable entva styleguide config for oxfmt",
+  "author": "Max Degterev <max@degterev.me>",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/entva/styleguide.git"
+  },
+  "bugs": "https://github.com/entva/styleguide/issues",
+  "version": "2.48.0",
+  "keywords": [
+    "formatter",
+    "config",
+    "oxfmt",
+    "styleguide",
+    "typescript",
+    "react"
+  ],
+  "files": [
+    "index.json",
+    "ignore-patterns.txt"
+  ],
+  "type": "module",
+  "exports": {
+    ".": "./index.json"
+  },
+  "scripts": {
+    "reinstall": "rm -rf node_modules package-lock.json && npm install",
+    "test": "node test/run.js index.json",
+    "prepublishOnly": "npm test"
+  },
+  "devDependencies": {
+    "oxfmt": "^0.58.0"
+  },
+  "peerDependencies": {
+    "oxfmt": "^0.x.x"
+  }
+}

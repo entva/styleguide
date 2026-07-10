@@ -1,0 +1,65 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "extends": ["./index.json"],
+  "jsPlugins": [
+    { "name": "storybook", "specifier": "eslint-plugin-storybook" }
+  ],
+  "env": { "builtin": true, "browser": true, "node": true },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".mjs", ".cjs", ".jsx", ".ts", ".tsx", ".d.ts", ".json"]
+      }
+    },
+    "import/extensions": [".js", ".mjs", ".cjs", ".jsx", ".ts", ".tsx", ".d.ts", ".json"],
+    "import/external-module-folders": ["node_modules", "node_modules/@types"],
+    "import/core-modules": [],
+    "import/ignore": ["node_modules", "\\.(coffee|scss|css|less|hbs|svg|json)$"],
+    "react": { "pragma": "React", "version": "19.0.0" },
+    "propWrapperFunctions": ["forbidExtraProps", "exact", "Object.freeze"]
+  },
+  "ignorePatterns": [
+    "**/.*",
+    "**/node_modules/**",
+    "**/public/**",
+    "**/coverage/**",
+    "**/migrations/**",
+    "**/(payload)/**",
+    "**/next-env.d.ts"
+  ],
+  "rules": {
+    "import-js/no-extraneous-dependencies": ["error", {
+      "devDependencies": [
+        "test/**", "tests/**", "spec/**", "**/__tests__/**", "**/__mocks__/**",
+        "test.*", "test-*.*", "**/*{.,_}{test,spec}.*", "**/*.config.*", "**/*.setup.*", "**/*.conf.*",
+        "**/eslint.*", "**/vitest.*", "**/*.stories.*", "**/.storybook/**"
+      ],
+      "optionalDependencies": false
+    }]
+  },
+  "overrides": [
+    {
+      "files": ["**/*.stories.{ts,tsx,js,jsx,mjs,cjs}", "**/*.story.{ts,tsx,js,jsx,mjs,cjs}"],
+      "rules": {
+        "react/rules-of-hooks": "off",
+        "import-js/no-anonymous-default-export": "off",
+        "storybook/await-interactions": "error",
+        "storybook/context-in-play-function": "error",
+        "storybook/default-exports": "error",
+        "storybook/hierarchy-separator": "warn",
+        "storybook/no-redundant-story-name": "warn",
+        "storybook/no-renderer-packages": "error",
+        "storybook/prefer-pascal-case": "warn",
+        "storybook/story-exports": "error",
+        "storybook/use-storybook-expect": "error",
+        "storybook/use-storybook-testing-library": "error"
+      }
+    },
+    {
+      "files": [".storybook/main.{js,cjs,mjs,ts}"],
+      "rules": {
+        "storybook/no-uninstalled-addons": "error"
+      }
+    }
+  ]
+}
