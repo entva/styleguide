@@ -35,6 +35,10 @@ Storybook? Also install `eslint-plugin-storybook` (optional peer dependency).
 - Use `--ignore-path`, not the config's `ignorePatterns` field.
 - Run from your project root -- a different `cwd` breaks `--ignore-path` matching.
 - `--type-aware` needs TypeScript 7+. `oxlint-tsgolint` ships as a dependency, no separate install.
+- `next.json`/`next-storybook.json` enable `react/react-compiler`, matching what `eslint-config-next`'s
+  `core-web-vitals` preset enables by default via `eslint-plugin-react-hooks` v7 (missing memo deps,
+  setState-in-effect, refs-during-render, etc., collapsed into one rule). It's strict -- expect real
+  findings the first time you turn it on for an existing project.
 
 ## Unsupported rules
 
@@ -43,3 +47,4 @@ Storybook? Also install `eslint-plugin-storybook` (optional peer dependency).
 | `@typescript-eslint/naming-convention` | Not implemented in oxlint ([oxc#2180](https://github.com/oxc-project/oxc/issues/2180)) |
 | `import/named` | oxlint's native rule skips `.ts`/`.tsx`, defers to `tsc` |
 | `react/jsx-props-no-multi-spaces` | Crashes on any JSX element |
+| `no-shadow` / `no-use-before-define` (TS-aware behavior) | No native `typescript/*` equivalent exists; falls back to the core JS rules, so enums, typedefs, and type/value shadowing aren't handled exactly like `@typescript-eslint` |

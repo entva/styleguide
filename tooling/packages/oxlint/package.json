@@ -24,7 +24,7 @@
     "next.json",
     "next-storybook.json",
     "ignore-patterns.txt",
-    "eslint-core-shim.mjs"
+    "eslint-core-shim.js"
   ],
   "type": "module",
   "exports": {
@@ -35,7 +35,7 @@
   },
   "scripts": {
     "reinstall": "rm -rf node_modules package-lock.json && npm install",
-    "test": "node test/run.js index.json",
+    "test": "node test/run.js",
     "rules": "oxlint -c index.json --print-config > oxlint-ruleset-output.json",
     "prepublishOnly": "npm test"
   },
