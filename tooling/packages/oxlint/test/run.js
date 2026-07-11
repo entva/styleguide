@@ -3,13 +3,13 @@ import { fileURLToPath } from 'url';
 import { resolve, dirname, join } from 'path';
 import { cpSync, mkdtempSync, rmSync } from 'fs';
 import { tmpdir } from 'os';
-import { collectLinterErrors, createTestErrorsCollector } from './assert.js';
+// oxlint-disable-next-line import-js/no-relative-packages -- shared monorepo test helper
+import { collectLinterErrors, createTestErrorsCollector } from '../../../../test/utils.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const oxlintBin = resolve(here, '../node_modules/.bin/oxlint');
 
-// oxlint's jsPlugins report rules as "plugin(rule)". Map plugin aliases back to
-// the canonical rule id used in `// expect:` fixture comments.
+// Maps oxlint's jsPlugin aliases back to the rule id used in `// expect:` comments.
 const PLUGIN_PREFIX = {
   stylistic: '',
   'eslint-core': '',
@@ -40,10 +40,8 @@ const runOxlintRaw = (args) => {
   }
 };
 
-// Lints every fixture under `dir` against `config` in one pass and checks each violation
-// against that file's `// expect:` comments. A fixture with no comment above a line is
-// expected to have zero violations there -- "valid"/"invalid" subfolder names are purely
-// organizational.
+// Lints `dir` against `config` and checks each violation against that line's `// expect:`
+// comment; a line with no comment is expected to be clean.
 const processDir = (config, dir, extraArgs = []) => {
   const configPath = resolve(here, '..', config);
   const dirPath = resolve(here, dir);
@@ -52,12 +50,10 @@ const processDir = (config, dir, extraArgs = []) => {
   let isSuccess = true;
 
   diagnostics
-    // Parser/semantic diagnostics (e.g. TypeScript's own duplicate-declaration
-    // check) have no rule "code" and aren't expressible as `// expect:` rules.
+    // Codeless diagnostics are either a parser error (ignore, not a rule) or a jsPlugin
+    // crash (fail -- it silently stopped linting the file).
     .filter(({ code, message }) => {
       if (code) return true;
-      // A jsPlugin crash also has no code -- unlike a legitimate codeless
-      // parser diagnostic, it means a rule silently stopped linting a file.
       if (message.startsWith('Error running JS plugin')) {
         console.error(`Errors found:\n${message}`);
         isSuccess = false;
@@ -84,9 +80,7 @@ const processDir = (config, dir, extraArgs = []) => {
   return isSuccess;
 };
 
-// Which fixture directory exercises which config. `type-aware` reuses index.json's rules
-// but needs --type-aware (requires TypeScript 7+ and oxlint-tsgolint) plus its own
-// tsconfig.json, so it can't share a pass with the rest of `main`.
+// `type-aware` needs its own pass: --type-aware requires TypeScript 7+ and oxlint-tsgolint.
 const SUITES = [
   { config: 'index.json', dir: 'main' },
   { config: 'next.json', dir: 'next' },
@@ -94,15 +88,10 @@ const SUITES = [
   { config: 'index.json', dir: 'type-aware', extraArgs: ['--type-aware'] },
 ];
 
-// Regression test for a real bug found against external consumer projects:
-// `ignorePatterns` in the config JSON is resolved relative to the *config
-// file's own directory* (per oxlint's schema docs), so it never matches
-// anything when the config lives in node_modules and the linted project is
-// elsewhere. `--ignore-path` resolves relative to the CLI's cwd instead, so
-// it's the only mechanism that works for installed-package consumers. This
-// copies a static fixture tree entirely outside the package to reproduce that --
-// a fixture living under `test/` would put the config dir and project dir in the
-// same place, which can't reproduce the bug.
+// `ignorePatterns` in the config resolves relative to the config file's own directory, so
+// it never matches once the config lives in node_modules of a separate project -- only
+// `--ignore-path` (resolved relative to cwd) works there. Needs a fixture tree outside this
+// package to reproduce; one under `test/` would put the config and project in the same place.
 const verifyIgnorePath = () => {
   const configPath = resolve(here, '../index.json');
   const ignorePath = resolve(here, '../ignore-patterns.txt');
