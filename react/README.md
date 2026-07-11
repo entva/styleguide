@@ -7,8 +7,7 @@ This style guide is mostly based on the standards that are currently prevalent i
 ## Table of Contents
 
   1. [Basic Rules](#basic-rules)
-  1. [Hooks vs Class vs `React.createClass` vs stateless](#hooks-vs-class-vs-reactcreateclass-vs-stateless)
-  1. [Mixins](#mixins)
+  1. [Hooks vs Class vs stateless](#hooks-vs-class-vs-stateless)
   1. [Naming](#naming)
   1. [Alignment](#alignment)
   1. [Quotes](#quotes)
@@ -29,49 +28,23 @@ This style guide is mostly based on the standards that are currently prevalent i
   - Do not use `React.createElement` unless you’re initializing the app from a file that is not JSX.
   - [`react/forbid-prop-types`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-prop-types.md) will allow `arrays` and `objects` only if it is explicitly noted what `array` and `object` contains, using `arrayOf`, `objectOf`, or `shape`.
 
-## Hooks vs Class vs `React.createClass` vs stateless
+## Hooks vs Class vs stateless
 
-  - Prefer functional components with Hooks over `class extends React.Component` (when possible) or `React.createClass`. eslint: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md) [`react/prefer-stateless-function`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md)
+  - Prefer functional components with Hooks over `class extends React.Component`. eslint: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md) [`react/prefer-stateless-function`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md)
 
     ```jsx
     // bad
-    const Listing = React.createClass({
-      // ...
-      render() {
-        return <div>{this.state.hello}</div>;
-      }
-    });
-
-    // better
-    class Listing extends React.Component {
-      // ...
-      render() {
-        return <div>{this.state.hello}</div>;
-      }
-    }
-    ```
-
-    And if you can accomplish the same with Hooks:
-
-    ```jsx
-    // better
     class Listing extends React.Component {
       render() {
         return <div>{this.props.hello}</div>;
       }
     }
 
-    // best
+    // good
     const Listing = ({ hello }) => (
       <div>{hello}</div>
     );
     ```
-
-## Mixins
-
-  - [Do not use mixins](https://facebook.github.io/react/blog/2016/07/13/mixins-considered-harmful.html).
-
-  > Why? It's a legacy feature not meant to be used in modern React applications.
 
 ## Naming
   - **Extensions**: Use `.jsx` extension for React components. eslint: [`react/jsx-filename-extension`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md)
@@ -528,13 +501,13 @@ We don’t recommend using indexes for keys if the order of items may change.
 
     ```jsx
     // bad
-    React.createClass({
+    class extends React.Component {
       _handleClickSubmit() {
         // do stuff
-      },
+      }
 
       // other stuff
-    });
+    }
 
     // good
     class extends React.Component {
@@ -588,21 +561,18 @@ We don’t recommend using indexes for keys if the order of items may change.
   - Ordering for `class extends React.Component`:
 
   1. `constructor`
-  1. `componentWillMount`
   1. `componentDidMount`
-  1. `componentWillReceiveProps`
   1. `shouldComponentUpdate`
-  1. `componentWillUpdate`
   1. `componentDidUpdate`
   1. `componentWillUnmount`
-  1. `getChildContext`
-  1. `getDefaultState`
   1. *getter and setter methods`* like `getSelectReason()` or `setValue()`
   1. *clickHandlers or eventHandlers* like `handleClickSubmit()` or `handleChangeDescription()`
   1. *optional render methods* like `renderNavigation()` or `renderProfilePicture()`
   1. `render`
 
-  - How to define `propTypes`, `defaultProps`, `contextTypes`, etc...
+  - In TypeScript projects, type props directly instead of using `PropTypes`. The example below applies to plain JavaScript components only.
+
+  - How to define `propTypes` and `defaultProps`:
 
     ```jsx
     import React from 'react';

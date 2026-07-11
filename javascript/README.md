@@ -1348,23 +1348,8 @@ Based on [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript/bl
     } from 'path';
     ```
 
-  <a name="modules--no-webpack-loader-syntax"></a>
-  - [10.8](#modules--no-webpack-loader-syntax) Disallow Webpack loader syntax in module import statements.
- eslint: [`import/no-webpack-loader-syntax`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-webpack-loader-syntax.md)
-    > Why? Since using Webpack syntax in the imports couples the code to a module bundler. Prefer using the loader syntax in `webpack.config.js`.
-
-    ```javascript
-    // bad
-    import fooSass from 'css!sass!foo.scss';
-    import barCss from 'style!css!bar.css';
-
-    // good
-    import fooSass from 'foo.scss';
-    import barCss from 'bar.css';
-    ```
-
   <a name="modules--absolute-imports"></a>
-  - [10.9](#modules--absolute-imports) **(Webpack) Recommendation**: Prevent long relative paths in import by using absolute paths.
+  - [10.8](#modules--absolute-imports) Prevent long relative paths in import by using absolute paths.
     > Why? Relative imports traversing multiple parent directories can get unreadable.
 
     ```javascript
