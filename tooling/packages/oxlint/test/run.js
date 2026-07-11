@@ -194,8 +194,45 @@ const verifyTypeAware = () => {
   return isSuccess;
 };
 
+// Regression test: `next.json` mirrors `eslint-config-next/typescript`'s recommended
+// TypeScript correctness rules, which `index.json` doesn't enable (its `correctness`
+// category is off). These rules only matter for Next.js projects.
+const verifyNextTypescriptRules = () => {
+  const configPath = resolve(here, '../next.json');
+  const projectDir = mkdtempSync(join(tmpdir(), 'oxlint-next-ts-'));
+
+  writeFileSync(join(projectDir, 'test.ts'), [
+    '// @ts-ignore',
+    'const a: string = 1;',
+    'enum Color { Red = 1, Blue = 1 }',
+    'console.log(a, Color);',
+    '',
+  ].join('\n'));
+
+  let isSuccess = true;
+
+  try {
+    const { diagnostics } = runOxlintRaw(['-c', configPath, '--format', 'json', projectDir]);
+    const codes = new Set(diagnostics.map(({ code }) => code));
+
+    if (!codes.has('typescript(ban-ts-comment)')) {
+      console.error('Errors found:\ntypescript/ban-ts-comment did not fire in next.json');
+      isSuccess = false;
+    }
+    if (!codes.has('typescript(no-duplicate-enum-values)')) {
+      console.error('Errors found:\ntypescript/no-duplicate-enum-values did not fire in next.json');
+      isSuccess = false;
+    }
+  } finally {
+    rmSync(projectDir, { recursive: true, force: true });
+  }
+
+  return isSuccess;
+};
+
 const run = (configPath, dir) => {
-  const isSuccess = processDir(configPath, dir) && verifyIgnorePath() && verifyTypeAware();
+  const isSuccess = processDir(configPath, dir) && verifyIgnorePath() && verifyTypeAware()
+    && verifyNextTypescriptRules();
   process.exit(isSuccess ? 0 : 1);
 };
 
