@@ -230,9 +230,47 @@ const verifyNextTypescriptRules = () => {
   return isSuccess;
 };
 
+// Regression test: `react/react-compiler` surfaces the same diagnostics as
+// `eslint-plugin-react-compiler`, which is what eslint-config-next's core-web-vitals
+// preset enables via eslint-plugin-react-hooks v7's granular rules (missing memo deps,
+// setState-in-effect, etc.). oxlint only has the single combined rule, and only
+// `next.json`/`next-storybook.json` turn it on -- `index.json` doesn't, since it's not
+// Next.js-specific and would be a large blast radius for non-Next.js consumers.
+const verifyNextReactCompilerRule = () => {
+  const configPath = resolve(here, '../next.json');
+  const projectDir = mkdtempSync(join(tmpdir(), 'oxlint-next-react-compiler-'));
+
+  writeFileSync(join(projectDir, 'hook.tsx'), [
+    "import { useState, useEffect } from 'react';",
+    '',
+    'export const useReactToChanges = (data: string) => {',
+    "  const [error, setError] = useState('');",
+    "  useEffect(() => { setError(''); }, [data]);",
+    '  return error;',
+    '};',
+    '',
+  ].join('\n'));
+
+  let isSuccess = true;
+
+  try {
+    const { diagnostics } = runOxlintRaw(['-c', configPath, '--format', 'json', projectDir]);
+    const codes = new Set(diagnostics.map(({ code }) => code));
+
+    if (!codes.has('react(react-compiler)')) {
+      console.error('Errors found:\nreact/react-compiler did not fire in next.json');
+      isSuccess = false;
+    }
+  } finally {
+    rmSync(projectDir, { recursive: true, force: true });
+  }
+
+  return isSuccess;
+};
+
 const run = (configPath, dir) => {
   const isSuccess = processDir(configPath, dir) && verifyIgnorePath() && verifyTypeAware()
-    && verifyNextTypescriptRules();
+    && verifyNextTypescriptRules() && verifyNextReactCompilerRule();
   process.exit(isSuccess ? 0 : 1);
 };
 

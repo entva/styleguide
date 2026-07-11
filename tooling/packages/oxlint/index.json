@@ -5,7 +5,7 @@
     { "name": "stylistic", "specifier": "@stylistic/eslint-plugin" },
     { "name": "import-js", "specifier": "eslint-plugin-import" },
     { "name": "react-js", "specifier": "eslint-plugin-react" },
-    { "name": "eslint-core", "specifier": "./eslint-core-shim.mjs" }
+    { "name": "eslint-core", "specifier": "./eslint-core-shim.js" }
   ],
   "categories": { "correctness": "off" },
   "env": { "builtin": true, "browser": true, "node": true },

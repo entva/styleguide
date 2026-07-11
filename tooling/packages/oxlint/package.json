@@ -24,7 +24,7 @@
     "next.json",
     "next-storybook.json",
     "ignore-patterns.txt",
-    "eslint-core-shim.mjs"
+    "eslint-core-shim.js"
   ],
   "type": "module",
   "exports": {

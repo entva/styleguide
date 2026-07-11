@@ -51,6 +51,8 @@
     "nextjs/no-head-import-in-document": "error",
     "nextjs/no-script-component-in-head": "error",
 
+    "react/react-compiler": "error",
+
     "typescript/no-non-null-asserted-optional-chain": "off",
     "typescript/no-unnecessary-type-constraint": "off",
 

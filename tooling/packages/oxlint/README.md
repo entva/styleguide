@@ -35,6 +35,10 @@ Storybook? Also install `eslint-plugin-storybook` (optional peer dependency).
 - Use `--ignore-path`, not the config's `ignorePatterns` field.
 - Run from your project root -- a different `cwd` breaks `--ignore-path` matching.
 - `--type-aware` needs TypeScript 7+. `oxlint-tsgolint` ships as a dependency, no separate install.
+- `next.json`/`next-storybook.json` enable `react/react-compiler`, matching what `eslint-config-next`'s
+  `core-web-vitals` preset enables by default via `eslint-plugin-react-hooks` v7 (missing memo deps,
+  setState-in-effect, refs-during-render, etc., collapsed into one rule). It's strict -- expect real
+  findings the first time you turn it on for an existing project.
 
 ## Unsupported rules
 
