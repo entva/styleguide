@@ -34,7 +34,6 @@ export const mainRule = {
       project: './tsconfig.json',
 
       ecmaFeatures: {
-        generators: false,
         objectLiteralDuplicateProperties: false,
         jsx: true,
       },

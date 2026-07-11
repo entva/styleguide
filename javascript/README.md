@@ -34,7 +34,6 @@ Based on [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript/bl
   1. [Accessors](#accessors)
   1. [Events](#events)
   1. [jQuery](#jquery)
-  1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
   1. [ECMAScript 6+ (ES 2015+) Styles](#ecmascript-6-es-2015-styles)
   1. [Standard Library](#standard-library)
   1. [Testing](#testing)
@@ -1436,13 +1435,8 @@ Based on [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript/bl
     const increasedByOne = numbers.map((num) => num + 1);
     ```
 
-  <a name="generators--nope"></a>
-  - [11.2](#generators--nope) Don’t use generators for now.
-
-    > Why? They don’t transpile well to ES5.
-
   <a name="generators--spacing"></a>
-  - [11.3](#generators--spacing) If you must use generators, or if you disregard [our advice](#generators--nope), make sure their function signature is spaced properly. eslint: [`generator-star-spacing`](https://eslint.org/docs/rules/generator-star-spacing)
+  - [11.2](#generators--spacing) If you use generators, make sure their function signature is spaced properly. eslint: [`generator-star-spacing`](https://eslint.org/docs/rules/generator-star-spacing)
 
     > Why? `function` and `*` are part of the same conceptual keyword - `*` is not a modifier for `function`, `function*` is a unique construct, different from `function`.
 
@@ -2685,7 +2679,7 @@ Based on [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript/bl
   <a name="commas--dangling"></a>
   - [20.2](#commas--dangling) Additional trailing comma: **Yup.** eslint: [`comma-dangle`](https://eslint.org/docs/rules/comma-dangle.html)
 
-    > Why? This leads to cleaner git diffs. Also, transpilers like Babel will remove the additional trailing comma in the transpiled code which means you don’t have to worry about the [trailing comma problem](https://github.com/airbnb/javascript/blob/es5-deprecated/es5/README.md#commas) in legacy browsers.
+    > Why? This leads to cleaner git diffs.
 
     ```diff
     // bad - git diff without trailing comma
@@ -3174,18 +3168,11 @@ Based on [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript/bl
 
 **[⬆ back to top](#table-of-contents)**
 
-## ECMAScript 5 Compatibility
-
-  <a name="es5-compat--kangax"></a>
-  - [27.1](#es5-compat--kangax) Refer to [Kangax](https://twitter.com/kangax/)’s ES5 [compatibility table](https://kangax.github.io/es5-compat-table/).
-
-**[⬆ back to top](#table-of-contents)**
-
 <a name="ecmascript-6-styles"></a>
 ## ECMAScript 6+ (ES 2015+) Styles
 
   <a name="es6-styles"></a>
-  - [28.1](#es6-styles) This is a collection of links to the various ES6+ features.
+  - [27.1](#es6-styles) This is a collection of links to the various ES6+ features.
 
 1. [Arrow Functions](#arrow-functions)
 1. [Classes](#classes--constructors)
@@ -3210,7 +3197,7 @@ Based on [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript/bl
   contains utilities that are functionally broken but remain for legacy reasons.
 
   <a name="standard-library--isnan"></a>
-  - [29.1](#standard-library--isnan) Use `Number.isNaN` instead of global `isNaN`.
+  - [28.1](#standard-library--isnan) Use `Number.isNaN` instead of global `isNaN`.
     eslint: [`no-restricted-globals`](https://eslint.org/docs/rules/no-restricted-globals)
 
     > Why? The global `isNaN` coerces non-numbers to numbers, returning true for anything that coerces to NaN.
@@ -3227,7 +3214,7 @@ Based on [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript/bl
     ```
 
   <a name="standard-library--isfinite"></a>
-  - [29.2](#standard-library--isfinite) Use `Number.isFinite` instead of global `isFinite`.
+  - [28.2](#standard-library--isfinite) Use `Number.isFinite` instead of global `isFinite`.
     eslint: [`no-restricted-globals`](https://eslint.org/docs/rules/no-restricted-globals)
 
     > Why? The global `isFinite` coerces non-numbers to numbers, returning true for anything that coerces to a finite number.

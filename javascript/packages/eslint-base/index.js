@@ -31,7 +31,6 @@ export const mainRule = {
 
     parserOptions: {
       ecmaFeatures: {
-        generators: false,
         objectLiteralDuplicateProperties: false,
         jsx: true,
       },
@@ -65,7 +64,7 @@ export const mainRule = {
     }],
 
     'global-require': ['off'],
-    'no-restricted-syntax': ['error', 'LabeledStatement', 'WithStatement', 'YieldExpression'],
+    'no-restricted-syntax': ['error', 'LabeledStatement', 'WithStatement'],
 
     'class-methods-use-this': ['off', {
       exceptMethods: [],

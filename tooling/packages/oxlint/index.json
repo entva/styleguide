@@ -32,7 +32,7 @@
     "**/next-env.d.ts"
   ],
   "rules": {
-    "eslint-core/no-restricted-syntax": ["error", "LabeledStatement", "WithStatement", "YieldExpression"],
+    "eslint-core/no-restricted-syntax": ["error", "LabeledStatement", "WithStatement"],
     "eslint-core/strict": ["error", "never"],
     "eslint-core/no-new-symbol": "error",
     "eslint-core/camelcase": ["error", { "properties": "never", "ignoreDestructuring": true, "ignoreImports": true, "ignoreGlobals": true }],
