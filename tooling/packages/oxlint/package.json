@@ -9,7 +9,7 @@
     "url": "git+https://github.com/entva/styleguide.git"
   },
   "bugs": "https://github.com/entva/styleguide/issues",
-  "version": "2.50.0",
+  "version": "2.51.0",
   "keywords": [
     "linter",
     "config",
@@ -40,24 +40,28 @@
     "prepublishOnly": "npm test"
   },
   "devDependencies": {
-    "eslint-plugin-storybook": "^10.5.0",
-    "oxlint": "^1.73.0",
-    "react": "^19.2.7",
+    "eslint-plugin-storybook": "^10.5.3",
+    "oxlint": "^1.75.0",
+    "oxlint-tsgolint": "^7.0.2001",
+    "react": "^19.2.8",
     "typescript": "^7.0.2"
   },
   "dependencies": {
     "@stylistic/eslint-plugin": "^5.10.0",
     "eslint": "^9.39.5",
     "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-react": "^7.37.5",
-    "oxlint-tsgolint": "^0.24.0"
+    "eslint-plugin-react": "^7.37.5"
   },
   "peerDependencies": {
     "eslint-plugin-storybook": "^10.x.x",
-    "oxlint": "^1.x.x"
+    "oxlint": "^1.x.x",
+    "oxlint-tsgolint": "^0.x.x || ^7.x.x"
   },
   "peerDependenciesMeta": {
     "eslint-plugin-storybook": {
+      "optional": true
+    },
+    "oxlint-tsgolint": {
       "optional": true
     }
   }

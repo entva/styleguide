@@ -9,7 +9,7 @@
     "url": "git+https://github.com/entva/styleguide.git"
   },
   "bugs": "https://github.com/entva/styleguide/issues",
-  "version": "2.50.0",
+  "version": "2.51.0",
   "keywords": [
     "linter",
     "config",
@@ -29,8 +29,8 @@
     "prepublishOnly": "npm test"
   },
   "devDependencies": {
-    "eslint": "^9.39.4",
-    "react": "^19.2.7"
+    "eslint": "^9.39.5",
+    "react": "^19.2.8"
   },
   "dependencies": {
     "eslint-config-entva-base": "^2.x.x",

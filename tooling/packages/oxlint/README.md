@@ -13,6 +13,7 @@ npm install --save-dev @entva/oxlint-config oxlint
 ```
 
 Storybook? Also install `eslint-plugin-storybook` (optional peer dependency).
+Using `--type-aware`? Also install `oxlint-tsgolint` (optional peer dependency).
 
 | Project type | Config file |
 | --- | --- |
@@ -34,7 +35,7 @@ Storybook? Also install `eslint-plugin-storybook` (optional peer dependency).
 - Point `-c` straight at the shipped config file. Don't wrap it in your own `.oxlintrc.json` via `"extends"`.
 - Use `--ignore-path`, not the config's `ignorePatterns` field.
 - Run from your project root -- a different `cwd` breaks `--ignore-path` matching.
-- `--type-aware` needs TypeScript 7+. `oxlint-tsgolint` ships as a dependency, no separate install.
+- `--type-aware` needs TypeScript 7+ and `oxlint-tsgolint` (optional peer dependency) installed separately.
 
 ## Unsupported rules
 
